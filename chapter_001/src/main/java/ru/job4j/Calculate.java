@@ -12,8 +12,8 @@ package ru.job4j;
  * @return print Hello World
  */
 public class Calculate {
-	public static void main (String[] args) {
-		System.out.println ("Hello World!");
+	public static void main(String[] args) {
+		System.out.println("Hello World!");
 	}
 	/**
 	 * Method Echo/
