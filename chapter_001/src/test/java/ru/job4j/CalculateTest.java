@@ -16,8 +16,8 @@ package ru.job4j;
 public class CalculateTest {
 	/**
 	 * Test echo
-	 */ @Test
-
+	 */
+	@Test
 	public void whenTakeNameThenTreeEchoPlusName() {
 		String input = "Dmitry Lebedev";
 		String expect = "Echo, echo, echo : Dmitry Lebedev";
