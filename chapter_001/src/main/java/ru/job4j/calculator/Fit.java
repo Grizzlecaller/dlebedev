@@ -17,9 +17,9 @@ public class Fit {
 
 
     double manWeight(double height) {
-        height = height - manConst;
-        height = height * humanCoef;
-        return height;
+    //    height = height - manConst;
+    //    height = height * humanCoef;
+        return (height - manConst) * humanCoef;
     }
 
     /**
@@ -28,8 +28,8 @@ public class Fit {
      * @return идеальный вес.
      */
     double womanWeight(double height) {
-        height = height - womanConst;
-        height = height * humanCoef;
-        return height;
+     //   height = height - womanConst;
+     //   height = height * humanCoef;
+        return (height - womanConst) * humanCoef;
     }
 }
