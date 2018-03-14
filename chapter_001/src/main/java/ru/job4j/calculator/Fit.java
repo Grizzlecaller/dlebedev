@@ -11,15 +11,13 @@ public class Fit {
      * @return идеальный вес.
      * @double объявление переменных
      */
-    private double manConst = 100;
-    private double womanConst = 110;
-    private double humanCoef = 1.15;
+    private static final double MAN_WEIGHT = 100;
+    private static final double WOMAN_WEIGHT = 110;
+    private static final double HUMAN_COEF = 1.15;
 
 
     double manWeight(double height) {
-    //    height = height - manConst;
-    //    height = height * humanCoef;
-        return (height - manConst) * humanCoef;
+        return (height - MAN_WEIGHT) * HUMAN_COEF;
     }
 
     /**
@@ -28,8 +26,6 @@ public class Fit {
      * @return идеальный вес.
      */
     double womanWeight(double height) {
-     //   height = height - womanConst;
-     //   height = height * humanCoef;
-        return (height - womanConst) * humanCoef;
+        return (height - WOMAN_WEIGHT) * HUMAN_COEF;
     }
 }
