@@ -6,20 +6,8 @@ package ru.job4j.max;
  */
 
 public class Max{
-    /**
-     * maximum принимает значение true или false в зависимости от сравнения
-     */
-    private boolean maximum;
     public int max(int first, int second){
-        if (first > second){
-            boolean maximum = true;
-        } else {
-            boolean maximum = false;
-        }
-        /**
-         * возвращаем значение тентарного условия
-         */
-        return maximum ? first : second;
+        return first > second ? first : second;
     }
 
 }
