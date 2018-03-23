@@ -12,7 +12,7 @@ import static org.junit.Assert.assertThat;
 
 public class CounterTest{
     @Test
-    public void whenFirstLessSecond() {
+    public void whenCalculateOneToTeDdivisibleTwo() {
         Counter summ = new Counter();
         int result = summ.add(0, 10);
         assertThat(result, is(30));
