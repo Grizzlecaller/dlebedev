@@ -8,16 +8,18 @@ public class Board {
     public String paint(int width, int height){
         StringBuilder screen = new StringBuilder();
         String ln = System.lineSeparator();
-        for (height = 0; height <= 2; height++) {
+        int hParam;
+        int wParam;
+        for (hParam = 0; hParam < height; hParam++) {
             /*
-                Проверяется значение height.
-                Если значение height делится на 2 без остатка, выполняется проверка width .
+                Проверяется значение hParam.
+                Если значение height делится на 2 без остатка, выполняется проверка wParam .
              */
-            if (height % 2 == 0){
-                for (width = 0; width <= 2; width++) {
+            if (hParam % 2 == 0){
+                for (wParam = 0; wParam < width; wParam++) {
                     // если width делится на 2 без остатка - первый (нулевой) символ "x".
 
-                    if (width % 2 == 0) {
+                    if (wParam % 2 == 0) {
                         screen.append("x");
                     } else {
                         screen.append(" ");
@@ -25,12 +27,12 @@ public class Board {
                 }
             }else{
                 /*
-                Если значение height делится на 2 с остатком, выполняется проверка width .
+                Если значение hParam делится на 2 с остатком, выполняется проверка wParam .
                  */
-                for (width = 0; width <= 2; width++) {
-                    // если width делится на 2 без остатка - первый (нулевой) символ " " (пробел).
+                for (wParam = 0; wParam < width; wParam++) {
+                    // если wParam делится на 2 без остатка - первый (нулевой) символ " " (пробел).
 
-                    if (width % 2 == 0) {
+                    if (wParam % 2 == 0) {
                         screen.append(" ");
                     } else {
                         screen.append("x");
