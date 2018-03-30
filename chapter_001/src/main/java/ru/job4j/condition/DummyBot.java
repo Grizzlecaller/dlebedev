@@ -5,7 +5,7 @@ package ru.job4j.condition;
  * @since 17.03.2018
  */
 
-public class DummyBot{
+public class DummyBot {
     /**
      * Отвечает на вопросы.
      * @param question Вопрос от клиента.

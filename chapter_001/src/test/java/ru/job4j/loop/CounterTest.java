@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
  * @since 21.03.2018
  */
 
-public class CounterTest{
+public class CounterTest {
     @Test
     public void whenCalculateOneToTenDivisibleTwo() {
         Counter summ = new Counter();

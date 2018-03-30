@@ -5,8 +5,8 @@ package ru.job4j.loop;
  * @since 21.03.2018
  */
 
-public class Factorial{
-    public int calc(int n){
+public class Factorial {
+    public int calc(int n) {
         /*
          * fResult = 1, т.к. умножение на 0 всегда даёт ноль.
          */
@@ -14,7 +14,7 @@ public class Factorial{
         /*
          * i = 1, т.к. умножение на 0 всегда даёт ноль.
          */
-        for(int i = 1; i <= n; i++){
+        for (int i = 1; i <= n; i++) {
             /*
              * fResult = fResult * i
              */

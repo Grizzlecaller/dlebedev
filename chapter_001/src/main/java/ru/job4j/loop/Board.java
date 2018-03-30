@@ -5,7 +5,7 @@ package ru.job4j.loop;
  * @since 27.03.2018
  */
 public class Board {
-    public String paint(int width, int height){
+    public String paint(int width, int height) {
         StringBuilder screen = new StringBuilder();
         String ln = System.lineSeparator();
         int hParam;
@@ -15,7 +15,7 @@ public class Board {
                 Проверяется значение hParam.
                 Если значение height делится на 2 без остатка, выполняется проверка wParam .
              */
-            if (hParam % 2 == 0){
+            if (hParam % 2 == 0) {
                 for (wParam = 0; wParam < width; wParam++) {
                     // если width делится на 2 без остатка - первый (нулевой) символ "x".
 
@@ -25,7 +25,7 @@ public class Board {
                         screen.append(" ");
                     }
                 }
-            }else{
+            } else {
                 /*
                 Если значение hParam делится на 2 с остатком, выполняется проверка wParam .
                  */
