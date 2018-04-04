@@ -2,7 +2,7 @@ package ru.job4j.array;
 
 /**
  * @author Dmitry Lebedev
- * @since 30.03.2018
+ * @since 02.04.2018
  */
 
 import org.junit.Test;
@@ -15,7 +15,7 @@ public class SquareTest {
         int bound = 3;
         Square square = new Square();
         int[] rst = square.calculate(bound);
-        int[] expect = new int[] {1, 4, 9,};
+        int[] expect = new int[] {1, 4, 9, };
         assertThat(rst, is(expect));
     }
     @Test
