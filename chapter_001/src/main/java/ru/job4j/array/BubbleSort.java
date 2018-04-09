@@ -1,5 +1,11 @@
 package ru.job4j.array;
 
+/**
+ * Class BubbleSort
+ * @author Dmitry Lebedev
+ * @since 03.04.2018
+ */
+
 public class BubbleSort {
     public int[] sort(int[] array) {
         for (int v = 0; v < array.length; v++) {
