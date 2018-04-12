@@ -1,5 +1,7 @@
 package ru.job4j.array;
 
+import java.util.Arrays;
+
 /**
  * Class BubbleSort
  * @author Dmitry Lebedev
@@ -8,15 +10,18 @@ package ru.job4j.array;
 
 public class ArrayDuplicate {
     public String[] remove(String[] array) {
-        for (int i = 0; i < array.length; i++) {
-            int arrayLenght = array.length;
-            for (int k = 0; k < arrayLenght; k++) {
-                if (array[i].equals(array[i + 1])) {
+        int i = 0;
+        int k = 0;
+        int arrayLenght = array.length;
+        for (i = 0; i < arrayLenght - 1; i++) {
+            for (k = 0; k < arrayLenght - 1; k++) {
+                String z = array[i];
+                if (z.equals(array[i + 1])) {
                     String dupl = array[array.length];
                     array[i + 1] = array[array.length];
                     dupl = array[i + 1];
                 }
             }
-        } return array;
+        } return Arrays.copyOf(array, 5);
     }
 }
