@@ -18,7 +18,7 @@ public class ArrayOneAndTwoToArrayThird {
          * Двумя циклами заполняем массив arrayFin
          */
             /*
-             *  Заполняем массив arrayFin из array1
+             * @param Заполняем массив arrayFin из array1
              */
             for (int i = 0; i < array1.length; i++) {
                 arrayFin[i] = array1[i];

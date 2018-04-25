@@ -8,15 +8,15 @@ package ru.job4j.loop;
 public class Factorial {
     public int calc(int n) {
         /*
-         * fResult = 1, т.к. умножение на 0 всегда даёт ноль.
+         * @param fResult = 1, т.к. умножение на 0 всегда даёт ноль.
          */
         int fResult = 1;
         /*
-         * i = 1, т.к. умножение на 0 всегда даёт ноль.
+         * @param i = 1, т.к. умножение на 0 всегда даёт ноль.
          */
         for (int i = 1; i <= n; i++) {
             /*
-             * fResult = fResult * i
+             * @param fResult = fResult * i
              */
             fResult *= i;
         }

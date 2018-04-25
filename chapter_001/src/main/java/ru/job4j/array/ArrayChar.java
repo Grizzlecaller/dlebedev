@@ -24,9 +24,11 @@ public class ArrayChar {
      * @return result если слово начинается с префикса  result = true
      */
     public boolean startWith(String prefix) {
+        /*
+            @result принимает значение false только в случае несовпадения префикса и начала слова
+         */
         boolean result = true;
         char[] value = prefix.toCharArray();
-        // проверить. что массив data имеет первые элементы одинаковые с value
         for (int i = 0; i < value.length; i++) {
             if (value[i] != (data[i])) {
                 result = false;

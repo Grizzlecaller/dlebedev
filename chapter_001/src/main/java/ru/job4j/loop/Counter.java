@@ -11,7 +11,7 @@ public class Counter {
         for (int i = start; i <= finish; i++) {
             if (i % 2 == 0) {
                 /*
-                 *alfa принимает значение i, когда i кратно 2
+                 *@param alfa принимает значение i, когда i кратно 2
                  */
                 alfa += i;
             }
