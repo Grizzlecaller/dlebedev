@@ -16,10 +16,8 @@ public class BubbleSort {
                 if (tmp1 > tmp2) {
                     array[i + 1] = tmp1;
                     array[i] = tmp2;
-
                 }
             }
-        }
-        return array;
+        } return array;
     }
 }

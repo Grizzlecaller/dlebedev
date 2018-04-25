@@ -1,6 +1,4 @@
-package ru.job4j.testingCode;
-
-import java.lang.reflect.Array;
+package ru.job4j.testing;
 
 /**
  * Class BubbleSort
@@ -13,7 +11,7 @@ import java.lang.reflect.Array;
  */
 
 public class ArrayOneAndTwoToArrayThird {
-    public int[] Fin(int[] array1, int[] array2) {
+    public int[] fin(int[] array1, int[] array2) {
         //Указываем длинну конечного массива равную сумме длин array1 и array2
         int[] arrayFin = new int[array1.length + array2.length];
         /*

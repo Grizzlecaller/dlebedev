@@ -1,4 +1,4 @@
-package ru.job4j.testingCode;
+package ru.job4j.testing;
 
 public class TestingArray {
 
@@ -13,7 +13,7 @@ public class TestingArray {
             arrayFin[i] = arrayOne[i];
         }
         for (int j = 0; j < arrayTwo.length; j++) {
-            arrayFin[arrayOne.length +j] = arrayTwo[j];
+            arrayFin[arrayOne.length + j] = arrayTwo[j];
         }
         for (int x = 0; x < arrayFin.length; x++) {
             System.out.println(arrayFin[x]);

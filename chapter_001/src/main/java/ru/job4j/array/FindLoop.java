@@ -14,7 +14,6 @@ public class FindLoop {
                 rst = index;
                 break;
             }
-        }
-        return rst;
+        } return rst;
     }
 }

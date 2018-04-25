@@ -9,6 +9,10 @@ import java.util.Arrays;
  */
 
 public class ArrayDuplicate {
+    /*
+        @param array - принимает массив с дубликатами
+        @return array - возвращает массив без будликатов
+     */
     public String[] remove(String[] array) {
         int arrayLength = array.length;
         for (int out = 0; out < arrayLength; out++) {

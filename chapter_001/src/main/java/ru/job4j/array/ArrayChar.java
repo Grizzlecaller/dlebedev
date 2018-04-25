@@ -1,9 +1,8 @@
 package ru.job4j.array;
 
-import java.lang.reflect.Array;
 
 /**
- * Class BubbleSort
+ * Class ArrayChar
  * @author Dmitry Lebedev
  * @since 10.04.2018
  */
@@ -11,6 +10,9 @@ import java.lang.reflect.Array;
 public class ArrayChar {
     private char[] data;
 
+    /**
+     * @param line
+     */
     public ArrayChar(String line) {
         this.data = line.toCharArray();
     }
@@ -19,7 +21,7 @@ public class ArrayChar {
      * Проверяет. что слово начинается с префикса.
      *
      * @param prefix префикс.
-     * @return если слово начинаеться с префикса
+     * @return result если слово начинается с префикса  result = true
      */
     public boolean startWith(String prefix) {
         boolean result = true;
