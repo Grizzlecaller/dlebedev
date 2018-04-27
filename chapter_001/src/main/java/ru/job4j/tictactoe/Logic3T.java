@@ -14,7 +14,15 @@ public class Logic3T {
     }
 
     public boolean isWinnerX() {
-        return false;
+        boolean wx = false;
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 1; j < table.length; j++) {
+                if (table[i][j - 1].equals(table[i][j])) {
+                    wx = true;
+                }
+            }
+        }
+        return wx;
     }
 
     public boolean isWinnerO() {
@@ -22,6 +30,7 @@ public class Logic3T {
     }
 
     public boolean hasGap() {
+
         return true;
     }
 }
