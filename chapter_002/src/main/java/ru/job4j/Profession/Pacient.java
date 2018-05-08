@@ -1,4 +1,11 @@
 package ru.job4j.Profession;
 
-public class Pacient extends Profession {
+/**
+ * Class Pacient
+ * @author Dmitry Lebedev
+ * @since 08.05.2018
+ */
+
+public class Pacient extends Doctor {
+
 }

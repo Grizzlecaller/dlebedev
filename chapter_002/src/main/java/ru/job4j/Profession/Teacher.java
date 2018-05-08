@@ -7,5 +7,7 @@ package ru.job4j.Profession;
  */
 
 public class Teacher extends Profession {
-
+    public Teacher(String profession, String name) {
+        super(profession, name);
+    }
 }
