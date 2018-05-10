@@ -7,5 +7,7 @@ package ru.job4j.Profession;
  */
 
 public class Pacient extends Doctor {
-
+    public String getDiagnose() {
+        return super.getDiagnose();
+    }
 }

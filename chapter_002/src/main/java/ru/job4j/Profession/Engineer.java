@@ -7,7 +7,10 @@ package ru.job4j.Profession;
  */
 
 public class Engineer extends Profession {
-    public Engineer(String profession, String name) {
-        super(profession, name);
+    public String getName() {
+        return super.getName();
+    }
+    public String getProfession() {
+        return super.getProfession();
     }
 }
