@@ -1,7 +1,5 @@
 package ru.job4j.ProfessionNew;
 
-import java.util.Dictionary;
-
 /**
  * Class Doctor
  * @author Dmitry Lebedev
@@ -11,5 +9,10 @@ import java.util.Dictionary;
 public class Doctor extends Profession {
     public Doctor() {
 
+    }
+
+    @Override
+    public String getName() {
+        return super.getName();
     }
 }

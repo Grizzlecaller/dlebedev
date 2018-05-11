@@ -10,4 +10,9 @@ public class Teacher extends Profession {
     public Teacher() {
 
     }
+
+    @Override
+    public String getName() {
+        return super.getName();
+    }
 }
