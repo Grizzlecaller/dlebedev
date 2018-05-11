@@ -6,5 +6,8 @@ package ru.job4j.ProfessionNew;
  * @since 11.05.2018
  */
 
-public class Engineer {
+public class Engineer extends Profession {
+    public Engineer() {
+
+    }
 }
