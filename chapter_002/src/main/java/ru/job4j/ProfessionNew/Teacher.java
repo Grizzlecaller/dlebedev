@@ -1,5 +1,7 @@
 package ru.job4j.ProfessionNew;
 
+import java.sql.Struct;
+
 /**
  * Class Teacher
  * @author Dmitry Lebedev
@@ -7,17 +9,9 @@ package ru.job4j.ProfessionNew;
  */
 
 public class Teacher extends Profession {
-    Teacher teacher = new Teacher();
 
-    @Override
-    public String getName() {
-        return super.getName();
-    }
-    public Teacher() {
-
-    }
-
-    public Teacher teach(Student student) {
-        return teach(student);
+    public Diplom teach(Student student) {
+        Diplom diplom = new Diplom();
+        return diplom;
     }
 }

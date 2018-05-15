@@ -7,13 +7,14 @@ package ru.job4j.ProfessionNew;
  */
 
 public class Profession {
-    public String Name;
+
+    public String name;
 
     public Profession() {
 
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 }

@@ -8,13 +8,8 @@ package ru.job4j.ProfessionNew;
 
 public class Engineer extends Profession {
 
-    @Override
-    public String getName() {
-        return super.getName();
-    }
-
-
-    public void buildHouse(){
-
+    public House build(){
+        House house = new House();
+        return house;
     }
 }

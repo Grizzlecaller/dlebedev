@@ -1,6 +1,11 @@
 package ru.job4j.ProfessionNew;
 
-public class House {
+/**
+ * Class House
+ * @author Dmitry Lebedev
+ * @since 15.05.2018
+ */
 
+public class House {
 
 }

@@ -1,5 +1,7 @@
 package ru.job4j.ProfessionNew;
 
+import javax.print.Doc;
+
 /**
  * Class Doctor
  * @author Dmitry Lebedev
@@ -8,12 +10,8 @@ package ru.job4j.ProfessionNew;
 
 public class Doctor extends Profession {
 
-    @Override
-    public String getName() {
-        return super.getName();
-    }
-
-    public Pacient heal(Pacient pacient) {
-        return pacient;
+    public Diagnose heal(Pacient pacient) {
+        Diagnose diagnose = new Diagnose();
+        return diagnose;
     }
 }

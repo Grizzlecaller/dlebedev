@@ -1,7 +1,11 @@
 package ru.job4j.ProfessionNew;
 
-public class Diagnose {
+/**
+ * Class Diagnose
+ * @author Dmitry Lebedev
+ * @since 15.05.2018
+ */
 
-    Diagnose diagnose = new Diagnose();
+public class Diagnose {
 
 }
