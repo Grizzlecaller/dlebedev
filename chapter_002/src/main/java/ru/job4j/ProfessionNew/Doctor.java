@@ -7,12 +7,11 @@ package ru.job4j.ProfessionNew;
  */
 
 public class Doctor extends Profession {
-    public Doctor() {
-
-    }
 
     @Override
     public String getName() {
         return super.getName();
     }
+
+    public Diagnose heal(Pacient pacient) {}
 }

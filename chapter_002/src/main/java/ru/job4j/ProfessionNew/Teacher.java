@@ -7,12 +7,14 @@ package ru.job4j.ProfessionNew;
  */
 
 public class Teacher extends Profession {
-    public Teacher() {
-
-    }
+    Teacher teacher = new Teacher();
 
     @Override
     public String getName() {
         return super.getName();
+    }
+
+    public Teacher teach(Student) {
+        return teacher;
     }
 }
