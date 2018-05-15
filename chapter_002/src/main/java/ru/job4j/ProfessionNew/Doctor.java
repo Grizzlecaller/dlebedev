@@ -13,5 +13,7 @@ public class Doctor extends Profession {
         return super.getName();
     }
 
-    public Diagnose heal(Pacient pacient) {}
+    public Pacient heal(Pacient pacient) {
+        return pacient;
+    }
 }

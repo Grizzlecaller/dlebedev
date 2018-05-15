@@ -13,8 +13,11 @@ public class Teacher extends Profession {
     public String getName() {
         return super.getName();
     }
+    public Teacher() {
 
-    public Teacher teach(Student) {
-        return teacher;
+    }
+
+    public Teacher teach(Student student) {
+        return teach(student);
     }
 }
