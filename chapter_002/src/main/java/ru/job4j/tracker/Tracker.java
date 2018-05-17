@@ -1,5 +1,6 @@
-package ru.job4j.tracker;
+package ru.job4j.Tracker;
 
+import java.util.*;
 /**
  * Class Tracker
  * @author Dmitry Lebedev
@@ -35,5 +36,16 @@ public class Tracker {
     private String generateId() {
         //Реализовать метод генерации.
         return null;
+    }
+
+    protected Item findById(String id) {
+        Item result = null;
+        for (Item item : items) {
+            if (item != null && item.getId().equals(id)) {
+                result = item;
+                break;
+            }
+        }
+        return result;
     }
 }
