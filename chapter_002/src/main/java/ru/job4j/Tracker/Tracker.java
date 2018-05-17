@@ -17,7 +17,7 @@ public class Tracker {
      * Указатель ячейки для новой заявки.
      */
     private int position = 0;
-
+    private static final Random RN = new Random();
     /**
      * Метод реализаущий добавление заявки в хранилище
      * @param item новая заявка
@@ -35,7 +35,7 @@ public class Tracker {
      */
     private String generateId() {
         //Реализовать метод генерации.
-        return null;
+        return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
 
     protected Item findById(String id) {
@@ -44,6 +44,26 @@ public class Tracker {
             if (item != null && item.getId().equals(id)) {
                 result = item;
                 break;
+            }
+        }
+        return result;
+    }
+
+    public Item[] getAll() {
+        Item[] result = new Item[this.position];
+        for (int index = 0; index != this.position; index++) {
+            result[index] = this.items[index];
+        }
+        return result;
+    }
+
+    public Item[] findAll() {
+        Item[] result = new Item[this.position];
+        for (int index = 0; index != this.position; index++) {
+            if (result[index] == null ) {
+                result[index] = result[this.position - 1];
+                this.position--;
+                index--;
             }
         }
         return result;
