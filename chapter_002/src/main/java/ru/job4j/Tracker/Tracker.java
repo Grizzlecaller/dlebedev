@@ -1,6 +1,7 @@
 package ru.job4j.Tracker;
 
-import java.util.*;
+import java.util.Random;
+
 /**
  * Class Tracker
  * @author Dmitry Lebedev
@@ -82,6 +83,17 @@ public class Tracker {
     }
 
     public void delete(String id) {
-
+        int itemsLength = items.length;
+        for (Item item : items) {
+            if (item.getId().equals(id)) {
+                for (int index = this.position; index != itemsLength; index++) {
+                    Item tmp = items[index];
+                    items[index] = items[index + 1];
+                    items[index + 1] = tmp;
+                    itemsLength--;
+                }
+            }
+        }
+        System.arraycopy(items, this.position, items, this.position, itemsLength );
     }
 }
