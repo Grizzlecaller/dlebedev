@@ -1,9 +1,9 @@
-package ru.job4j.Tracker;
+package ru.job4j.tracker;
 
 import java.util.Random;
 
 /**
- * Class Tracker
+ * Class tracker
  * @author Dmitry Lebedev
  * @since 16.05.2018
  */
@@ -98,9 +98,9 @@ public class Tracker {
     }
 
     void replace(String id, Item item) {
-        for (Item find : items) {
-            if (find.getId().equals(id)) {
-                items[this.position] = items[this.position + 1];
+        for (Item findId : items) {
+            if (findId.getId().equals(id)) {
+                //break;
             }
         }
     }
