@@ -68,4 +68,20 @@ public class Tracker {
         }
         return result;
     }
+
+    protected Item[] findByName(String key) {
+        int index = 0;
+        Item[] result = new Item[index];
+        for (Item item : items) {
+            if (item != null && item.getName().equals(key)) {
+                result[index] = items[this.position];
+                index++;
+            }
+        }
+        return result;
+    }
+
+    public void delete(String id) {
+
+    }
 }

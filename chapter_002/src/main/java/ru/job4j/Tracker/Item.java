@@ -10,6 +10,8 @@ public class Item {
 
     private String id;
 
+    private String name;
+
     public Item() {
     }
 
@@ -19,6 +21,14 @@ public class Item {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 }
