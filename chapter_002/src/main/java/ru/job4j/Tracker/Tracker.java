@@ -61,7 +61,7 @@ public class Tracker {
     public Item[] findAll() {
         Item[] result = new Item[this.position];
         for (int index = 0; index != this.position; index++) {
-            if (result[index] == null ) {
+            if (result[index] == null) {
                 result[index] = result[this.position - 1];
                 this.position--;
                 index--;
@@ -94,6 +94,14 @@ public class Tracker {
                 }
             }
         }
-        System.arraycopy(items, this.position, items, this.position, itemsLength );
+        System.arraycopy(items, this.position, items, this.position, itemsLength);
+    }
+
+    void replace(String id, Item item) {
+        for (Item find : items) {
+            if (find.getId().equals(id)) {
+                items[this.position] = items[this.position + 1];
+            }
+        }
     }
 }
