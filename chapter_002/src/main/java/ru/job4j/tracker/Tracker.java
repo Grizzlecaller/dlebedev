@@ -100,7 +100,7 @@ public class Tracker {
     void replace(String id, Item item) {
         for (Item findId : items) {
             if (findId.getId().equals(id)) {
-                //break;
+               item.setId(findId.getId());
             }
         }
     }
