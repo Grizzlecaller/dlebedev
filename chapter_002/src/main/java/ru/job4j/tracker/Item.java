@@ -26,6 +26,10 @@ public class Item {
 
     }
 
+    public indexOf(Item items,String id) {
+
+    }
+
     public String getId() {
         return this.id;
     }
@@ -57,5 +61,4 @@ public class Item {
     public void setCreate(long create) {
         this.create = create;
     }
-
 }

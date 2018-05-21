@@ -101,6 +101,8 @@ public class Tracker {
         for (Item findId : items) {
             if (findId != null && findId.getId().equals(id)) {
                 //нужно перезаписать объект в ячейке.
+                int index = indexOf(items, id);
+                items[index] = item;
             }
         }
     }
