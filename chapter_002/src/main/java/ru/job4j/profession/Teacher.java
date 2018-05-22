@@ -1,6 +1,4 @@
-package ru.job4j.ProfessionNew;
-
-import java.sql.Struct;
+package ru.job4j.profession;
 
 /**
  * Class Teacher

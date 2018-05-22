@@ -1,4 +1,4 @@
-package ru.job4j.OOPCar;
+package ru.job4j.car;
 
 public class CarUsage {
     public static void main(String[] args) {

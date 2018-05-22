@@ -1,4 +1,4 @@
-package ru.job4j.ProfessionNew;
+package ru.job4j.profession;
 
 /**
  * Class Engineer
@@ -8,7 +8,7 @@ package ru.job4j.ProfessionNew;
 
 public class Engineer extends Profession {
 
-    public House build(){
+    public House build() {
         House house = new House();
         return house;
     }

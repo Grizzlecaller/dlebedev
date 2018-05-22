@@ -1,6 +1,4 @@
-package ru.job4j.ProfessionNew;
-
-import javax.print.Doc;
+package ru.job4j.profession;
 
 /**
  * Class Doctor

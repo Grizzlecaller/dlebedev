@@ -1,4 +1,4 @@
-package ru.job4j.OOPCar;
+package ru.job4j.car;
 
 public class Car {
     private double volume;

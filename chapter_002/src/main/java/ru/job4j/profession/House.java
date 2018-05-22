@@ -1,4 +1,4 @@
-package ru.job4j.ProfessionNew;
+package ru.job4j.profession;
 
 /**
  * Class House
