@@ -26,6 +26,6 @@ public class TrackerTest {
         // Обновляем заявку в трекере.
         tracker.replace(previous.getId(), next);
         // Проверяем, что заявка с таким id имеет новые имя test2.
-        assertThat(tracker.findById(previous.getId()).getCreate(), is("test2"));
+        assertThat(tracker.findById(previous.getId()).getName(), is("test2"));
     }
 }

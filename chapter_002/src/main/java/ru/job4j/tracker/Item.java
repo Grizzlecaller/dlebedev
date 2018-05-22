@@ -26,10 +26,6 @@ public class Item {
 
     }
 
-    public indexOf(Item items,String id) {
-
-    }
-
     public String getId() {
         return this.id;
     }

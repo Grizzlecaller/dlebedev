@@ -98,11 +98,16 @@ public class Tracker {
     }
 
     void replace(String id, Item item) {
+        int indexA = 0;
+        int indexB = indexA;
+        if (indexA > 0) {
+            indexB--;
+        }
         for (Item findId : items) {
+            indexA++;
             if (findId != null && findId.getId().equals(id)) {
                 //нужно перезаписать объект в ячейке.
-                int index = indexOf(items, id);
-                items[index] = item;
+                items[indexB] = item;
             }
         }
     }
