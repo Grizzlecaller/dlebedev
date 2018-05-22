@@ -19,6 +19,10 @@ public class Tracker {
      */
     private int position = 0;
     private static final Random RN = new Random();
+
+    private int indexA = 0;
+    private int indexB = indexA;
+
     /**
      * Метод реализаущий добавление заявки в хранилище
      * @param item новая заявка
@@ -98,8 +102,6 @@ public class Tracker {
     }
 
     void replace(String id, Item item) {
-        int indexA = 0;
-        int indexB = indexA;
         if (indexA > 0) {
             indexB--;
         }
