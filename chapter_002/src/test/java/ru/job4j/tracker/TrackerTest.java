@@ -25,7 +25,7 @@ public class TrackerTest {
     }
 
         @Test
-        public void whenAddTwoItemThenDeleteFirstItem() {
+        public void whenReplaceNameThenReturnNewNameAgain() {
         Tracker tracker = new Tracker();
         Item next = new Item("test", "testDescription", 123L);
         Item next1 = new Item("test1", "testDescription1", 1234L);
@@ -52,5 +52,7 @@ public class TrackerTest {
         // Проверяем, что заявка с таким id имеет новые имя test2.
         assertThat(tracker.findById(next3.getId()).getName(), is("test6"));
     }
+
+
 
 }
