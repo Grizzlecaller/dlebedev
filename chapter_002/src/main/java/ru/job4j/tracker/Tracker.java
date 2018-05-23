@@ -86,15 +86,19 @@ public class Tracker {
         return result;
     }
 
+    //Надо доделать!
+
     public void delete(String id) {
         int itemsLength = items.length;
-        for (Item item : items) {
-            if (item.getId().equals(id)) {
-                for (int index = this.position; index != itemsLength; index++) {
+        for (Item deleteItem : items) {
+            indexA++;
+            if (deleteItem != null && deleteItem.getId().equals(id)) {
+                for (int index = indexA; index < itemsLength; index++) {
                     Item tmp = items[index];
-                    items[index] = items[index + 1];
-                    items[index + 1] = tmp;
+                    items[index] = items[itemsLength - index - 1];
+                    items[itemsLength - index - 1] = tmp;
                     itemsLength--;
+                    //index--;
                 }
             }
         }

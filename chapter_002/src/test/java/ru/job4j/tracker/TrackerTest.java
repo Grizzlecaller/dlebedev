@@ -53,6 +53,16 @@ public class TrackerTest {
         assertThat(tracker.findById(next3.getId()).getName(), is("test6"));
     }
 
+    @Test
+    public void whenAddTwoItemThenDeleteFirstItem() {
+        Tracker tracker = new Tracker();
+        Item next1 = new Item("test1", "testDescription1", 1234L);
+        Item next2 = new Item("test2", "testDescription2", 12345L);
+        tracker.add(next1);
+        tracker.add(next2);
+        tracker.delete(next1.getId());
+        assertThat(tracker.findById(next1.getId()).getName(), is("NULL"));
 
+    }
 
 }
