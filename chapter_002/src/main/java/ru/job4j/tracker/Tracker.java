@@ -75,12 +75,15 @@ public class Tracker {
     }
 
     protected Item[] findByName(String key) {
-        int index = 0;
+        int index = 1;
+        if (indexA > 0) {
+            indexB--;
+        }
         Item[] result = new Item[index];
         for (Item item : items) {
+            indexA++;
             if (item != null && item.getName().equals(key)) {
-                result[index] = items[this.position];
-                index++;
+                result[index] = items[indexA];
             }
         }
         return result;
@@ -92,7 +95,7 @@ public class Tracker {
         int itemsLength = items.length;
         for (Item deleteItem : items) {
             indexA++;
-            if (deleteItem != null && deleteItem.getId().equals(id)) {
+            if (/*deleteItem != null && */deleteItem.getId().equals(id)) {
                 for (int index = indexA; index < itemsLength; index++) {
                     Item tmp = items[index];
                     items[index] = items[itemsLength - index - 1];
