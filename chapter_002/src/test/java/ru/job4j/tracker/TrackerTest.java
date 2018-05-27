@@ -96,7 +96,6 @@ public class TrackerTest {
         tracker.add(next5);
         tracker.add(next6);
         tracker.add(next7);
-        tracker.getAll();
         assertThat(tracker.findByName("test4"), is("test4"));
     }
 }

@@ -74,16 +74,12 @@ public class Tracker {
         return result;
     }
 
-    protected Item[] findByName(String key) {
-        int index = 1;
-        if (indexA > 0) {
-            indexB--;
-        }
-        Item[] result = new Item[index];
-        for (Item item : items) {
-            indexA++;
-            if (item != null && item.getName().equals(key)) {
-                result[index] = items[indexA];
+    public Item[] findByName(String key) {
+        int index = 0;
+        Item[] result = new Item[1];
+        for (Item findName : items) {
+            if (findName != null && findName.getName().equals(key)) {
+                result[index] = this.items[this.position];
             }
         }
         return result;
