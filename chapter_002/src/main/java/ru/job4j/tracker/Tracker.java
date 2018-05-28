@@ -23,8 +23,9 @@ public class Tracker {
     private int indexA = 0;
     private int indexB = indexA;
 
-    int indexInFindByName = 0;
-    int indexOutFindByName = 0;
+    private int findByNameItemResultCounter = 0;
+    private int indexFindByNameIn = 0;
+    private int indexFindByNameOut = 0;
 
     /**
      * Метод реализаущий добавление заявки в хранилище
@@ -78,21 +79,26 @@ public class Tracker {
     }
 
     /**
-     * Работает
+     * DONE!
+     *
      * @param key принимает значение которое сравнивается с каким-либо параметром ячейки массива items.
      * @return возвращает массив элементов совпадающих с key.
      *
      * Надо придумать как объявить массив нужной длинны.
      */
     public Item[] findByName(String key) {
-
-        Item[] result = new Item[1];
         for (Item findName : items) {
             if (findName != null && findName.getName().equals(key)) {
-                result[indexOutFindByName] = this.items[indexInFindByName];
-                indexOutFindByName++;
+                findByNameItemResultCounter++;
             }
-            indexInFindByName++;
+        }
+        Item[] result = new Item[findByNameItemResultCounter];
+        for (Item findName : items) {
+            if (findName != null && findName.getName().equals(key)) {
+                result[indexFindByNameOut] = this.items[indexFindByNameIn];
+                indexFindByNameOut++;
+            }
+            indexFindByNameIn++;
         }
         return result;
     }
