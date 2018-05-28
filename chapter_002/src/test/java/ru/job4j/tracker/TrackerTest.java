@@ -80,7 +80,7 @@ public class TrackerTest {
     @Test
     public void findByNameFindNameFour() {
         Tracker tracker = new Tracker();
-        Item next0 = new Item("test", "testDescription", 123L);
+        Item next0 = new Item("test0", "testDescription0", 123L);
         Item next1 = new Item("test1", "testDescription1", 1234L);
         Item next2 = new Item("test2", "testDescription2", 12345L);
         Item next3 = new Item("test3", "testDescription3", 12346L);
@@ -96,8 +96,8 @@ public class TrackerTest {
         tracker.add(next5);
         tracker.add(next6);
         tracker.add(next7);
-        Item[] result = tracker.findByName("test4");
+        Item[] result = tracker.findByName("test3");
         Item result1 = result[0];
-        assertThat(result1.getName(), is("test4"));
+        assertThat(result1.getName(), is("test3"));
     }
 }
