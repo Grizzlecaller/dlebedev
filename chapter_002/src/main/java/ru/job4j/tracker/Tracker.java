@@ -20,9 +20,16 @@ public class Tracker {
     private int position = 0;
     private static final Random RN = new Random();
 
+    /**
+     * replace
+     */
+
     private int indexA = 0;
     private int indexB = indexA;
 
+    /**
+     * findByName
+     */
     private int findByNameItemResultCounter = 0;
     private int indexFindByNameIn = 0;
     private int indexFindByNameOut = 0;
