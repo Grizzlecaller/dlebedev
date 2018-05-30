@@ -35,6 +35,13 @@ public class Tracker {
     private int indexFindByNameOut = 0;
 
     /**
+     * delete
+     */
+    private int deleteCounter = 0;
+    private int deleteItemCounter = 0;
+
+
+    /**
      * Метод реализаущий добавление заявки в хранилище
      * @param item новая заявка
      */
@@ -93,6 +100,7 @@ public class Tracker {
      *
      * Надо придумать как объявить массив нужной длинны.
      */
+
     public Item[] findByName(String key) {
         for (Item findName : items) {
             if (findName != null && findName.getName().equals(key)) {
@@ -110,23 +118,29 @@ public class Tracker {
         return result;
     }
 
-    //Надо доделать!
+    //вроде ок.
 
     public void delete(String id) {
-        int itemsLength = items.length;
+        int itemsLength = this.position;
         for (Item deleteItem : items) {
-            indexA++;
-            if (/*deleteItem != null && */deleteItem.getId().equals(id)) {
-                for (int index = indexA; index < itemsLength; index++) {
-                    Item tmp = items[index];
-                    items[index] = items[itemsLength - index - 1];
-                    items[itemsLength - index - 1] = tmp;
-                    itemsLength--;
-                    //index--;
-                }
+            if (deleteItem != null && deleteItem.getId().equals(id)) {
+                deleteItemCounter++;
             }
         }
-        System.arraycopy(items, this.position, items, this.position, itemsLength);
+        Item[] result = new Item[itemsLength - deleteItemCounter];
+        Item tmp = null;
+
+        for (Item deleteItem : items) {
+            if (deleteItem != null && deleteItem.getId().equals(id)) {
+                for (int i = deleteCounter; i < this.position; i++) {
+                    tmp = this.items[deleteCounter];
+                    this.items[deleteCounter] = this.items[deleteCounter + 1];
+                    this.items[deleteCounter + 1] = tmp;
+                }
+            }
+            deleteCounter++;
+        }
+        System.arraycopy(items,0, items, 0, itemsLength - deleteItemCounter);
     }
 
     void replace(String id, Item item) {

@@ -53,7 +53,7 @@ public class TrackerTest {
     }
 
     @Test
-    public void whenAddTwoItemThenDeleteFirstItem() {
+    public void whenAddEightItemsThenDeleteFourthItem() {
         Tracker tracker = new Tracker();
         Item next0 = new Item("test", "testDescription", 123L);
         Item next1 = new Item("test1", "testDescription1", 1234L);
