@@ -55,7 +55,7 @@ public class TrackerTest {
     @Test
     public void whenAddEightItemsThenDeleteFourthItem() {
         Tracker tracker = new Tracker();
-        Item next0 = new Item("test", "testDescription", 123L);
+        Item next0 = new Item("test0", "testDescription0", 123L);
         Item next1 = new Item("test1", "testDescription1", 1234L);
         Item next2 = new Item("test2", "testDescription2", 12345L);
         Item next3 = new Item("test3", "testDescription3", 12346L);
@@ -72,7 +72,14 @@ public class TrackerTest {
         tracker.add(next6);
         tracker.add(next7);
         tracker.delete(next3.getId());
-        assertThat(tracker.findById(next3.getId()).getName(), is("NULL"));
+        Item[] resultIn = tracker.getAll();
+        /*for (int i = 0; i < 10; i++) {
+            Item resultOut = resultIn[i];
+            System.out.println(resultOut.getName());
+        }
+        */
+        Item resultOut = resultIn[4];
+        assertThat(resultOut.getDescription(), is("testDescription5"));
 
     }
 

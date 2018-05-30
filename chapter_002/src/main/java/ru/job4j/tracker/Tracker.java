@@ -132,15 +132,15 @@ public class Tracker {
 
         for (Item deleteItem : items) {
             if (deleteItem != null && deleteItem.getId().equals(id)) {
-                for (int i = deleteCounter; i < this.position; i++) {
-                    tmp = this.items[deleteCounter];
-                    this.items[deleteCounter] = this.items[deleteCounter + 1];
-                    this.items[deleteCounter + 1] = tmp;
+                for (int index = deleteCounter; index != this.position; index++) {
+                    tmp = this.items[index];
+                    this.items[index] = this.items[index + 1];
+                    this.items[index + 1] = tmp;
                 }
             }
             deleteCounter++;
         }
-        System.arraycopy(items,0, items, 0, itemsLength - deleteItemCounter);
+        System.arraycopy(items, 0, items, 0, itemsLength - deleteItemCounter);
     }
 
     void replace(String id, Item item) {
