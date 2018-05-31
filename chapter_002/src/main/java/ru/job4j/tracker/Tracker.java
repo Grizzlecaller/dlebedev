@@ -40,6 +40,12 @@ public class Tracker {
     private int deleteCounter = 0;
     private int deleteItemCounter = 0;
 
+    /**
+     * findAll
+     */
+
+    private int resultItemCounter = 0;
+    private int findAllItemsCounter = 0;
 
     /**
      * Метод реализаущий добавление заявки в хранилище
@@ -81,24 +87,25 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] result = new Item[this.position];
-        for (int index = 0; index != this.position; index++) {
-            if (result[index] == null) {
-                result[index] = result[this.position - 1];
-                this.position--;
-                index--;
+        for (Item notNullCounter : items) {
+            if (notNullCounter != null) {
+                resultItemCounter++;
+            }
+        }
+        Item[] result = new Item[resultItemCounter];
+        for (Item notNullCounter : items) {
+            if (notNullCounter != null){
+                result[findAllItemsCounter] = notNullCounter;
+                findAllItemsCounter++;
             }
         }
         return result;
     }
 
     /**
-     * DONE!
-     *
      * @param key принимает значение которое сравнивается с каким-либо параметром ячейки массива items.
      * @return возвращает массив элементов совпадающих с key.
      *
-     * Надо придумать как объявить массив нужной длинны.
      */
 
     public Item[] findByName(String key) {
@@ -118,8 +125,6 @@ public class Tracker {
         return result;
     }
 
-    //вроде ок.
-
     public void delete(String id) {
         int itemsLength = this.position;
         for (Item deleteItem : items) {
@@ -127,8 +132,7 @@ public class Tracker {
                 deleteItemCounter++;
             }
         }
-        Item[] result = new Item[itemsLength - deleteItemCounter];
-        Item tmp = null;
+        Item tmp;
 
         for (Item deleteItem : items) {
             if (deleteItem != null && deleteItem.getId().equals(id)) {

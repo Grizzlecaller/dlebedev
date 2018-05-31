@@ -73,13 +73,8 @@ public class TrackerTest {
         tracker.add(next7);
         tracker.delete(next3.getId());
         Item[] resultIn = tracker.getAll();
-        /*for (int i = 0; i < 10; i++) {
-            Item resultOut = resultIn[i];
-            System.out.println(resultOut.getName());
-        }
-        */
-        Item resultOut = resultIn[4];
-        assertThat(resultOut.getDescription(), is("testDescription5"));
+        Item resultOut = resultIn[3];
+        assertThat(resultOut.getDescription(), is("testDescription4"));
 
     }
 
@@ -105,5 +100,31 @@ public class TrackerTest {
         Item[] resultIn = tracker.findByName("test3");
         Item resultOut = resultIn[2];
         assertThat(resultOut.getDescription(), is("testDescription6"));
+    }
+
+    @Test
+    public void whenAddEightItemThenReturnArrayWithEightItems() {
+        Tracker tracker = new Tracker();
+        Item next0 = new Item("test3", "testDescription0", 123L);
+        Item next1 = new Item("test1", "testDescription1", 1234L);
+        Item next2 = new Item("test2", "testDescription2", 12345L);
+        Item next3 = new Item("test3", "testDescription3", 12346L);
+        Item next4 = new Item("test4", "testDescription4", 12347L);
+        Item next5 = new Item("test5", "testDescription5", 12348L);
+        Item next6 = new Item("test3", "testDescription6", 12349L);
+        Item next7 = new Item("test7", "testDescription7", 123410L);
+        tracker.add(next0);
+        tracker.add(next1);
+        tracker.add(next2);
+        tracker.add(next3);
+        tracker.add(next4);
+        tracker.add(next5);
+        tracker.add(next6);
+        tracker.add(next7);
+        Item[] resultIn = tracker.findAll();
+        /*for (int i = 0; i < resultIn.length; i++) {
+            System.out.println(resultIn[i]);
+        }*/
+        assertThat(resultIn.length, is(8));
     }
 }
