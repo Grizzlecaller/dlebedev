@@ -94,7 +94,7 @@ public class Tracker {
         }
         Item[] result = new Item[resultItemCounter];
         for (Item notNullCounter : items) {
-            if (notNullCounter != null){
+            if (notNullCounter != null) {
                 result[findAllItemsCounter] = notNullCounter;
                 findAllItemsCounter++;
             }
