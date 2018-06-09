@@ -6,5 +6,14 @@ package ru.job4j.tracker;
  * @since 05.06.2018
  */
 
-public class ConsoleInput {
+import java.util.*;
+
+public class ConsoleInput implements Input {
+
+    private Scanner scanner = new Scanner(System.in);
+
+    public String ask(String question) {
+        System.out.println(question);
+        return scanner.nextLine();
+    }
 }
