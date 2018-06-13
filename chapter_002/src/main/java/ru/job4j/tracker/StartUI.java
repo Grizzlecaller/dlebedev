@@ -132,7 +132,7 @@ public class StartUI {
     private void findItemByIdUI(){
         System.out.println("------------ findItemById --------------");
         String id = this.input.ask("id? :");
-        this.tracker.findById(id);
+        tracker.findById(id);
         System.out.println("------------ findItemById --------------");
     }
     //5
@@ -140,7 +140,8 @@ public class StartUI {
         System.out.println("------------ FindItemsByName --------------");
         String name = this.input.ask("name? :");
         Item[] resultIn = tracker.findByName(name);
-
+        System.out.println("name : " + resultIn[0].getName() + ";");
+        System.out.println("Description : " + resultIn[0].getDescription() + ";");
         System.out.println("------------ FindItemsByName --------------");
     }
 
