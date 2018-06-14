@@ -116,7 +116,7 @@ public class StartUI {
     }
     //2 replace
     private void editReplace() {
-        System.out.println("------------ editReplace --------------");
+        System.out.println("------------ Start editReplace --------------");
         String id = this.input.ask("id? :");
         String name = this.input.ask("Введите имя заявки :");
         String desc = this.input.ask("Введите описание заявки :");
@@ -125,26 +125,30 @@ public class StartUI {
         create = Long.parseLong(sCreate);
         Item item = new Item(name, desc, create);
         this.tracker.replace(id, item);
-        System.out.println("------------ editReplace --------------");
+        System.out.println("------------ End editReplace --------------");
     }
-    //3 delete
+    //3 Done delete
     private void deleteItem() {
-        System.out.println("------------ deleteItem --------------");
-        String name = this.input.ask("name? :");
-        this.tracker.findByName(name);
-        System.out.println("------------ deleteItemFindName --------------");
-        this.tracker.delete(name);
-        System.out.println("------------ deleteItem --------------");
+        System.out.println("------------ Start deleteItem --------------");
+        String id = this.input.ask("id? :");
+        System.out.println("------------ Analise --------------");
+        tracker.delete(id);
+        Item[] resultDelete = tracker.getAll();
+        int resultDeleteLength = resultDelete.length;
+        for (int i = 0; i < resultDeleteLength - 1; i++) {
+            System.out.println(resultDelete[i].getName());
+        }
+        System.out.println("------------ End deleteItem --------------");
     }
     // 4 Done findById
     private void findItemByIdUI(){
-        System.out.println("------------ findItemById --------------");
+        System.out.println("------------ Start findItemById --------------");
         String id = this.input.ask("id? :");
         Item resultId = tracker.findById(id);
         System.out.println("Name : " + resultId.getName() + ";");
         System.out.println("Description : " + resultId.getDescription() + ";");
         System.out.println("Create : " + resultId.getDescription() + ";");
-        System.out.println("------------ findItemById --------------");
+        System.out.println("------------ End findItemById --------------");
     }
     //5 Done findByName
     private void FindItemsByName() {
