@@ -17,14 +17,24 @@ public class StartUI {
      */
     private static final String SHOWALL = "1";
 
+    /**
+     * Константа для редактирования заявки
+     */
     private static final String EDIT = "2";
 
+    /**
+     * Константа для удаления заявки
+     */
     private static final String DELETE = "3";
+
     /**
      * Константа для поиска заявки по id
      */
     private static final String FINDITEMBYID = "4";
 
+    /**
+     * Константа для поиска заявки по name
+     */
     private static final String FINDITEMSBYNAME = "5";
 
     /**
@@ -88,6 +98,7 @@ public class StartUI {
     /**
      * Метод реализует добавленяи новый заявки в хранилище.
      */
+
     // 0 Done
     private void createItem() {
         System.out.println("------------ Добавление новой заявки --------------");
@@ -100,6 +111,7 @@ public class StartUI {
         this.tracker.add(item);
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
     }
+
     // 1 Done findAll
     private void findAllItems() {
         System.out.println("------------ Start findAllItems --------------");
@@ -111,9 +123,9 @@ public class StartUI {
             System.out.println("Элемент № : " + rezNum + " = " + result[i].getDescription());
             System.out.println("Элемент № : " + rezNum + " = " + result[i].getCreate());
         }
-
         System.out.println("------------ End findAllItems --------------");
     }
+
     //2 replace
     private void editReplace() {
         System.out.println("------------ Start editReplace --------------");
@@ -127,6 +139,7 @@ public class StartUI {
         this.tracker.replace(id, item);
         System.out.println("------------ End editReplace --------------");
     }
+
     //3 Done delete
     private void deleteItem() {
         System.out.println("------------ Start deleteItem --------------");
@@ -140,6 +153,7 @@ public class StartUI {
         }
         System.out.println("------------ End deleteItem --------------");
     }
+
     // 4 Done findById
     private void findItemByIdUI(){
         System.out.println("------------ Start findItemById --------------");
@@ -150,6 +164,7 @@ public class StartUI {
         System.out.println("Create : " + resultId.getDescription() + ";");
         System.out.println("------------ End findItemById --------------");
     }
+
     //5 Done findByName
     private void FindItemsByName() {
         System.out.println("------------ Start FindItemsByName --------------");
@@ -166,7 +181,6 @@ public class StartUI {
         System.out.println("------------ End FindItemsByName --------------");
     }
 
-
     private void showMenu() {
         System.out.println("Меню.");
         System.out.println("0. Add new Item");
@@ -182,6 +196,7 @@ public class StartUI {
      * Запускт программы.
      * @param args
      */
+
     public static void main(String[] args) {
         new StartUI(new ConsoleInput(), new Tracker()).init();
     }
