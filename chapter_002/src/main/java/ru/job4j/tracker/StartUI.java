@@ -88,7 +88,7 @@ public class StartUI {
     /**
      * Метод реализует добавленяи новый заявки в хранилище.
      */
-    // 0
+    // 0 Done
     private void createItem() {
         System.out.println("------------ Добавление новой заявки --------------");
         String name = this.input.ask("Введите имя заявки :");
@@ -100,11 +100,19 @@ public class StartUI {
         this.tracker.add(item);
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
     }
-    // 1
+    // 1 Done
     private void findAllItems() {
-        System.out.println("------------ findAllItems --------------");
-        this.tracker.findAll();
-        System.out.println("------------ findAllItems --------------");
+        System.out.println("------------ Start findAllItems --------------");
+        Item[] result = tracker.getAll();
+        System.out.println("Количество объектов удовлетворяющих критерий поиска : "  + result.length);
+        for (int i = 0; i < result.length; i++) {
+            int rezNum = i + 1;
+            System.out.println("Элемент № : " + rezNum + " = " + result[i].getName());
+            System.out.println("Элемент № : " + rezNum + " = " + result[i].getDescription());
+            System.out.println("Элемент № : " + rezNum + " = " + result[i].getCreate());
+        }
+
+        System.out.println("------------ End findAllItems --------------");
     }
     //2
     private void editReplace() {
@@ -128,21 +136,30 @@ public class StartUI {
         this.tracker.delete(name);
         System.out.println("------------ deleteItem --------------");
     }
-    // 4
+    // 4 Done
     private void findItemByIdUI(){
         System.out.println("------------ findItemById --------------");
         String id = this.input.ask("id? :");
-        tracker.findById(id);
+        Item resultId = tracker.findById(id);
+        System.out.println("Name : " + resultId.getName() + ";");
+        System.out.println("Description : " + resultId.getDescription() + ";");
+        System.out.println("Create : " + resultId.getDescription() + ";");
         System.out.println("------------ findItemById --------------");
     }
-    //5
+    //5 Done
     private void FindItemsByName() {
-        System.out.println("------------ FindItemsByName --------------");
+        System.out.println("------------ Start FindItemsByName --------------");
         String name = this.input.ask("name? :");
-        Item[] resultIn = tracker.findByName(name);
-        System.out.println("name : " + resultIn[0].getName() + ";");
-        System.out.println("Description : " + resultIn[0].getDescription() + ";");
-        System.out.println("------------ FindItemsByName --------------");
+        Item[] resultName = tracker.findByName(name);
+        System.out.println("Количество объектов удовлетворяющих критерий поиска : " + resultName.length);
+        for (int i = 0; i < resultName.length; i++) {
+            int rezNum = i + 1;
+            System.out.println("Результат : " + rezNum);
+            System.out.println("Name : " + resultName[i].getName() + ";");
+            System.out.println("Description : " + resultName[i].getDescription() + ";");
+            System.out.println("Create : " + resultName[i].getDescription() + ";");
+        }
+        System.out.println("------------ End FindItemsByName --------------");
     }
 
 
