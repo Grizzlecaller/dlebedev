@@ -100,7 +100,7 @@ public class StartUI {
         this.tracker.add(item);
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
     }
-    // 1 Done
+    // 1 Done findAll
     private void findAllItems() {
         System.out.println("------------ Start findAllItems --------------");
         Item[] result = tracker.getAll();
@@ -114,7 +114,7 @@ public class StartUI {
 
         System.out.println("------------ End findAllItems --------------");
     }
-    //2
+    //2 replace
     private void editReplace() {
         System.out.println("------------ editReplace --------------");
         String id = this.input.ask("id? :");
@@ -127,7 +127,7 @@ public class StartUI {
         this.tracker.replace(id, item);
         System.out.println("------------ editReplace --------------");
     }
-    //3
+    //3 delete
     private void deleteItem() {
         System.out.println("------------ deleteItem --------------");
         String name = this.input.ask("name? :");
@@ -136,7 +136,7 @@ public class StartUI {
         this.tracker.delete(name);
         System.out.println("------------ deleteItem --------------");
     }
-    // 4 Done
+    // 4 Done findById
     private void findItemByIdUI(){
         System.out.println("------------ findItemById --------------");
         String id = this.input.ask("id? :");
@@ -146,7 +146,7 @@ public class StartUI {
         System.out.println("Create : " + resultId.getDescription() + ";");
         System.out.println("------------ findItemById --------------");
     }
-    //5 Done
+    //5 Done findByName
     private void FindItemsByName() {
         System.out.println("------------ Start FindItemsByName --------------");
         String name = this.input.ask("name? :");
