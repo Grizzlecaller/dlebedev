@@ -116,27 +116,31 @@ public class StartUI {
     private void findAllItems() {
         System.out.println("------------ Start findAllItems --------------");
         Item[] result = tracker.getAll();
-        System.out.println("Количество объектов удовлетворяющих критерий поиска : "  + result.length);
-        for (int i = 0; i < result.length; i++) {
-            int rezNum = i + 1;
+        int resultLength = result.length;
+        int i = 0;
+        int rezNum = i + 1;
+        System.out.println("Количество объектов удовлетворяющих критерий поиска : "  + resultLength);
+        for (i = 0; i < resultLength - 1; i++) {
             System.out.println("Элемент № : " + rezNum + " = " + result[i].getName());
             System.out.println("Элемент № : " + rezNum + " = " + result[i].getDescription());
             System.out.println("Элемент № : " + rezNum + " = " + result[i].getCreate());
+            System.out.println("Элемент № : " + rezNum + " = " + result[i].getId());
         }
         System.out.println("------------ End findAllItems --------------");
     }
 
-    //2 replace
+    //2 Done replace
     private void editReplace() {
         System.out.println("------------ Start editReplace --------------");
         String id = this.input.ask("id? :");
-        String name = this.input.ask("Введите имя заявки :");
-        String desc = this.input.ask("Введите описание заявки :");
-        String sCreate = this.input.ask("Введите create :");
+        tracker.delete(id);
+        String name = this.input.ask("Введите новое имя заявки :");
+        String desc = this.input.ask("Введите новое описание заявки :");
+        String sCreate = this.input.ask("Введите новое create :");
         long create = 0;
         create = Long.parseLong(sCreate);
-        Item item = new Item(name, desc, create);
-        this.tracker.replace(id, item);
+        Item newItem = new Item(name, desc, create);
+        newItem.setId(id);
         System.out.println("------------ End editReplace --------------");
     }
 
@@ -177,6 +181,7 @@ public class StartUI {
             System.out.println("Name : " + resultName[i].getName() + ";");
             System.out.println("Description : " + resultName[i].getDescription() + ";");
             System.out.println("Create : " + resultName[i].getDescription() + ";");
+            System.out.println("Id : " + resultName[i].getId() + ";");
         }
         System.out.println("------------ End FindItemsByName --------------");
     }
