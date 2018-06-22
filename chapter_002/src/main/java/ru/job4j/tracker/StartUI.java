@@ -86,7 +86,7 @@ public class StartUI {
                 this.deleteItem();
 
             } else if (FINDITEMSBYNAME.equals(answer)) {
-                this.FindItemsByName();
+                this.findItemsByName();
 
             } else if (EXIT.equals(answer)) {
                 exit = true;
@@ -180,8 +180,8 @@ public class StartUI {
     }
 
     //5 Done findByName
-    private void FindItemsByName() {
-        System.out.println("------------ Start FindItemsByName --------------");
+    private void findItemsByName() {
+        System.out.println("------------ Start findItemsByName --------------");
         String name = this.input.ask("name? :");
         Item[] resultName = tracker.findByName(name);
         System.out.println("Количество объектов удовлетворяющих критерий поиска : " + resultName.length);
@@ -193,7 +193,7 @@ public class StartUI {
             System.out.println("Create : " + resultName[i].getDescription());
             System.out.println("Id : " + resultName[i].getId());
         }
-        System.out.println("------------ End FindItemsByName --------------");
+        System.out.println("------------ End findItemsByName --------------");
     }
 
     private void showMenu() {

@@ -27,25 +27,9 @@ public class Tracker {
     private int indexA = 0;
 
     /**
-     * findByName
-     */
-    private int findByNameItemResultCounter = 0;
-    private int indexFindByNameIn = 0;
-    private int indexFindByNameOut = 0;
-    private int lengthNumber = 0;
-    private int srcNameCounter = 0;
-
-    /**
      * delete
      */
     private int deleteCounter = 0;
-
-    /**
-     * findAll
-     */
-
-    private int resultItemCounter = 0;
-    private int findAllItemsCounter = 0;
 
     /**
      * Метод реализаущий добавление заявки в хранилище
@@ -87,6 +71,10 @@ public class Tracker {
     }
 
     public Item[] findAll() {
+
+        int resultItemCounter = 0;
+        int findAllItemsCounter = 0;
+
         for (Item notNullCounter : items) {
             if (notNullCounter != null) {
                 resultItemCounter++;
@@ -125,11 +113,13 @@ public class Tracker {
         return result;
     }*/
     public Item[] findByName(String key) {
+        int destNameCounter = 0;
+        int srcNameCounter = 0;
         Item[] result = new Item[this.position];
         for (Item findName : items) {
             if (findName != null && findName.getName().equals(key)) {
-                System.arraycopy(items, srcNameCounter, result, lengthNumber, 1);
-                lengthNumber++;
+                System.arraycopy(items, srcNameCounter, result, destNameCounter, 1);
+                destNameCounter++;
             }
             srcNameCounter++;
         }
