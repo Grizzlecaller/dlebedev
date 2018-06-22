@@ -32,12 +32,13 @@ public class Tracker {
     private int findByNameItemResultCounter = 0;
     private int indexFindByNameIn = 0;
     private int indexFindByNameOut = 0;
+    private int lengthNumber = 0;
+    private int srcNameCounter = 0;
 
     /**
      * delete
      */
     private int deleteCounter = 0;
-    private int deleteItemCounter = 0;
 
     /**
      * findAll
@@ -107,7 +108,7 @@ public class Tracker {
      *
      */
 
-    public Item[] findByName(String key) {
+    /**public Item[] findByName(String key) {
         for (Item findName : items) {
             if (findName != null && findName.getName().equals(key)) {
                 findByNameItemResultCounter++;
@@ -122,7 +123,19 @@ public class Tracker {
             indexFindByNameIn++;
         }
         return result;
+    }*/
+    public Item[] findByName(String key) {
+        Item[] result = new Item[this.position];
+        for (Item findName : items) {
+            if (findName != null && findName.getName().equals(key)) {
+                System.arraycopy(items, srcNameCounter, result, lengthNumber, 1);
+                lengthNumber++;
+            }
+            srcNameCounter++;
+        }
+        return result;
     }
+
 
     public void delete(String id) {
         int itemsLength = this.position;
@@ -138,10 +151,10 @@ public class Tracker {
             }
             deleteCounter++;
         }
-        System.arraycopy(items, 0, items, 0, itemsLength - deleteItemCounter);
+        System.arraycopy(items, 0, items, 0, itemsLength - 1);
     }
 
-    void replace(String id, Item item) {
+    public void replace(String id, Item item) {
         for (Item findId : items) {
             if (findId != null && findId.getId().equals(id)) {
                 items[indexA] = item;
