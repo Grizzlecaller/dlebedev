@@ -25,7 +25,6 @@ public class Tracker {
      */
 
     private int indexA = 0;
-    private int indexB = indexA;
 
     /**
      * findByName
@@ -127,13 +126,8 @@ public class Tracker {
 
     public void delete(String id) {
         int itemsLength = this.position;
-        for (Item deleteItem : items) {
-            if (deleteItem != null && deleteItem.getId().equals(id)) {
-                deleteItemCounter++;
-            }
-        }
-        Item tmp;
 
+        Item tmp;
         for (Item deleteItem : items) {
             if (deleteItem != null && deleteItem.getId().equals(id)) {
                 for (int index = deleteCounter; index != this.position; index++) {
@@ -148,15 +142,11 @@ public class Tracker {
     }
 
     void replace(String id, Item item) {
-        if (indexA > 0) {
-            indexB--;
-        }
         for (Item findId : items) {
-            indexA++;
             if (findId != null && findId.getId().equals(id)) {
-                //нужно перезаписать объект в ячейке.
-                items[indexB] = item;
+                items[indexA] = item;
             }
+            indexA++;
         }
     }
 }
