@@ -72,15 +72,9 @@ public class Tracker {
 
     public Item[] findAll() {
 
-        int resultItemCounter = 0;
         int findAllItemsCounter = 0;
 
-        for (Item notNullCounter : items) {
-            if (notNullCounter != null) {
-                resultItemCounter++;
-            }
-        }
-        Item[] result = new Item[resultItemCounter];
+        Item[] result = new Item[this.position];
         for (Item notNullCounter : items) {
             if (notNullCounter != null) {
                 result[findAllItemsCounter] = notNullCounter;
