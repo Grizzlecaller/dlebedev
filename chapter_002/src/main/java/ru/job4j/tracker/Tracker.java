@@ -149,11 +149,15 @@ public class Tracker {
     }
 
     public void replace(String id, Item item) {
-        for (Item findId : items) {
-            if (findId != null && findId.getId().equals(id)) {
-                items[indexA] = item;
+        if (position != 0) {
+            for (Item findId : items) {
+                if (findId != null && findId.getId().equals(id)) {
+                    item.setId(id);
+                    items[indexA] = item;
+                    break;
+                }
+                indexA++;
             }
-            indexA++;
         }
     }
 }

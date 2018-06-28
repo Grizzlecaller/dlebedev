@@ -125,6 +125,7 @@ public class StartUI {
             System.out.println("Description : " + result[i].getDescription());
             System.out.println("Create : " + result[i].getCreate());
             System.out.println("Id: " + result[i].getId());
+            System.out.println("-------------------------------");
             rezNum++;
         }
         System.out.println("------------ End findAllItems --------------");
@@ -140,7 +141,6 @@ public class StartUI {
         long create = 0;
         create = Long.parseLong(sCreate);
         Item newItem = new Item(name, desc, create);
-        newItem.setId(id);
         tracker.replace(id, newItem);
         System.out.println("------------ End editReplace --------------");
     }
