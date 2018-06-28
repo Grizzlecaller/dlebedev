@@ -160,7 +160,7 @@ public class StartUI {
     }
 
     // 4 Done findById
-    private void findItemByIdUI(){
+    private void findItemByIdUI() {
         System.out.println("------------ Start findItemById --------------");
         String id = this.input.ask("id? :");
         Item resultId;
@@ -171,8 +171,7 @@ public class StartUI {
                 System.out.println("Name : " + resultId.getName());
                 System.out.println("Description : " + resultId.getDescription());
                 System.out.println("Create : " + resultId.getDescription());
-            }
-            else {
+            } else {
                 System.out.println("Id not found");
             }
         }
