@@ -104,7 +104,7 @@ public class StartUI {
         String name = this.input.ask("Введите имя заявки :");
         String desc = this.input.ask("Введите описание заявки :");
         String sCreate = this.input.ask("Введите create :");
-        long create = 0;
+        long create;
         create = Long.parseLong(sCreate);
         Item item = new Item(name, desc, create);
         this.tracker.add(item);
