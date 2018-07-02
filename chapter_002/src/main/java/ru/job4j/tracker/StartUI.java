@@ -212,6 +212,6 @@ public class StartUI {
      */
 
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new StubInput(new String[] {}), new Tracker()).init();
     }
 }
