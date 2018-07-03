@@ -183,8 +183,9 @@ public class StartUI {
         System.out.println("------------ Start findItemsByName --------------");
         String name = this.input.ask("name? :");
         Item[] resultName = tracker.findByName(name);
-        System.out.println("Количество объектов удовлетворяющих критерий поиска : " + resultName.length);
-        for (int i = 0; i < resultName.length; i++) {
+        int resultNameLength = resultName.length;
+        System.out.println("Количество объектов удовлетворяющих критерий поиска : " + (resultNameLength - 1));
+        for (int i = 0; i < resultNameLength - 1; i++) {
             int rezNum = i + 1;
             System.out.println("Результат : " + rezNum);
             System.out.println("Name : " + resultName[i].getName());
@@ -212,6 +213,7 @@ public class StartUI {
      */
 
     public static void main(String[] args) {
-        new StartUI(new StubInput(new String[] {}), new Tracker()).init();
+        Input input = new StubInput(new String[] {});
+        new StartUI((input), new Tracker()).init();
     }
 }

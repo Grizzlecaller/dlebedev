@@ -7,11 +7,14 @@ package ru.job4j.tracker;
  */
 
 import org.junit.Test;
+
+import javax.sound.midi.Track;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class StartUITest {
-    @Test
+    @Test //add
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();     // создаём Tracker
         Input input = new StubInput(new String[]{"0", "test name", "desc", "11", "6"});   //создаём StubInput с последовательностью действий
@@ -19,7 +22,7 @@ public class StartUITest {
         assertThat(tracker.getAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
 
-    @Test
+    @Test //findById + edit
     public void whenUpdateThenTrackerHasUpdatedValue() {
         // создаём Tracker
         Tracker tracker = new Tracker();
@@ -31,5 +34,16 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
         assertThat(tracker.findById(item.getId()).getName(), is("test replace"));
+    }
+
+    @Test //delete
+    public void whenAddThreeItemThackerHasNewItemsThenDeleteSecondItem() {
+        Tracker tracker = new Tracker();
+        Item item0 = tracker.add(new Item("test name0", "desc0", 1123));
+        Item item1 = tracker.add(new Item("test name1", "desc1", 2123));
+        Item item2 = tracker.add(new Item("test name2", "desc2", 3123));
+        Input input = new StubInput(new String[]{"3", item1.getId(), "6"});
+        new StartUI(input, tracker).init();
+        assertThat(tracker.getAll()[1].getName(), is("test name2"));
     }
 }

@@ -1,5 +1,11 @@
 package ru.job4j.tracker;
 
+/**
+ * Class StubInput
+ * @author Dmitry Lebedev
+ * @since 02.07.2018
+ */
+
 public class StubInput implements Input {
     /**
      * Это поле содержит последовательность ответов пользователя.
