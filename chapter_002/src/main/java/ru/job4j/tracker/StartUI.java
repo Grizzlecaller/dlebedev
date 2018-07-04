@@ -151,16 +151,16 @@ public class StartUI {
         String id = this.input.ask("id? :");
         System.out.println("------------ Analise --------------");
         tracker.delete(id);
-        Item[] resultDelete = tracker.getAll();
-        int resultDeleteLength = resultDelete.length;
-        for (int i = 0; i < resultDeleteLength - 1; i++) {
-            System.out.println(resultDelete[i].getName());
-        }
+        //Item[] resultDelete = tracker.getAll();
+        //int resultDeleteLength = resultDelete.length;
+        //for (int i = 0; i < resultDeleteLength - 1; i++) {
+        //    System.out.println(resultDelete[i].getName());
+        //}
         System.out.println("------------ End deleteItem --------------");
     }
 
     // 4 Done findById
-    private void findItemByIdUI() {
+    /**private void findItemByIdUI() {
         System.out.println("------------ Start findItemById --------------");
         String id = this.input.ask("id? :");
         Item resultId;
@@ -176,6 +176,18 @@ public class StartUI {
             }
         }
         System.out.println("------------ End findItemById --------------");
+    }*/
+    private void findItemByIdUI() {
+        System.out.println("------------ Start findItemById --------------");
+        String id = this.input.ask("id? :");
+        Item findId = tracker.findById(id);
+        if (findId == null) {
+            System.out.println("Id not found");
+        }else {
+            System.out.println("Name : " + findId.getName());
+            System.out.println("Description : " + findId.getDescription());
+            System.out.println("Create : " + findId.getDescription());
+        }
     }
 
     //5 Done findByName
@@ -214,6 +226,6 @@ public class StartUI {
 
     public static void main(String[] args) {
         Input input = new StubInput(new String[] {});
-        new StartUI((input), new Tracker()).init();
+        new StartUI((new ConsoleInput()), new Tracker()).init();
     }
 }
