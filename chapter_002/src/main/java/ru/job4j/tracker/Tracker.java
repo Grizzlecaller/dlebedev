@@ -118,6 +118,16 @@ public class Tracker {
             srcNameCounter++;
         }
         return result;
+    }*/
+
+    public Item[] findByName(String key) {
+        int index = 0;
+        Item[] result = new Item[this.position];
+        for (Item findName : items) {
+            if (findName != null && findName.getName().equals(key)) {
+                result[index++] = findName;
+            }
+        } return Arrays.copyOf(result, index);
     }
 
 
