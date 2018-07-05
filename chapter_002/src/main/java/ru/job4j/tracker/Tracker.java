@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -106,7 +108,8 @@ public class Tracker {
         }
         return result;
     }*/
-    public Item[] findByName(String key) {
+
+    /**public Item[] findByName(String key) {
         int destNameCounter = 0;
         int srcNameCounter = 0;
         Item[] result = new Item[this.position];
