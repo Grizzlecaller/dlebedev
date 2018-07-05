@@ -131,8 +131,8 @@ public class Tracker {
     }
 
 
-    public void delete(String id) {
-        /**int itemsLength = this.position;
+    /**public void delete(String id) {
+        int itemsLength = this.position;
 
         Item tmp;
         for (Item deleteItem : items) {
@@ -146,7 +146,9 @@ public class Tracker {
             deleteCounter++;
         }
         System.arraycopy(items, 0, items, 0, itemsLength - 1);
-    }*/
+    }
+     */
+    /**public void delete(String id) {
         int itemsLength = this.position;
         Item tmp;
         for (int index = 0; index != this.position; index++) {
@@ -157,6 +159,21 @@ public class Tracker {
             }
         } System.arraycopy(items, 0, items, 0, itemsLength - 1);
     }
+     */
+
+    public void delete(String id) {
+        Item tmp;
+        for (int index = 0; index != this.position; index++) {
+            if (items[index] != null && items[index].getId().equals(id)) {
+                tmp = this.items[index];
+                this.items[index] = this.items[index + 1];
+                this.items[index + 1] = tmp;
+                System.arraycopy(this.items, index, this.items, this.position, 1);
+                break;
+            }
+        }
+    }
+
 
     public void replace(String id, Item item) {
         if (position != 0) {
