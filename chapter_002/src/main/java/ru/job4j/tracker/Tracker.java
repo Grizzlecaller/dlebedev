@@ -157,19 +157,21 @@ public class Tracker {
                 this.items[index] = this.items[index + 1];
                 this.items[index + 1] = tmp;
             }
-        } System.arraycopy(items, 0, items, 0, itemsLength - 1);
+        }
+        System.arraycopy(this.items, 0, this.items, 0, 0);
     }
-     */
+    */
 
     public void delete(String id) {
         Item tmp;
+        int thisPosition = this.position;
         for (int index = 0; index != this.position; index++) {
             if (items[index] != null && items[index].getId().equals(id)) {
                 tmp = this.items[index];
                 this.items[index] = this.items[index + 1];
                 this.items[index + 1] = tmp;
-                System.arraycopy(this.items, index, this.items, this.position, 1);
-                break;
+                thisPosition--;
+                Arrays.copyOf(items, thisPosition);
             }
         }
     }
