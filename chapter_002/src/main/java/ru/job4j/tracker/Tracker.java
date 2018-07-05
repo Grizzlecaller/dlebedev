@@ -23,17 +23,6 @@ public class Tracker {
     private static final Random RN = new Random();
 
     /**
-     * replace
-     */
-
-    private int indexA = 0;
-
-    /**
-     * delete
-     */
-    private int deleteCounter = 0;
-
-    /**
      * Метод реализаущий добавление заявки в хранилище
      * @param item новая заявка
      */
@@ -166,21 +155,16 @@ public class Tracker {
     */
 
     public void delete(String id) {
-        Item tmp;
-        int thisPosition = this.position;
         for (int index = 0; index != this.position; index++) {
             if (items[index] != null && items[index].getId().equals(id)) {
-                tmp = this.items[index];
-                this.items[index] = this.items[index + 1];
-                this.items[index + 1] = tmp;
-                thisPosition--;
-                Arrays.copyOf(items, thisPosition);
+                System.arraycopy(this.items, index + 1, this.items, index, this.position - index);
             }
         }
     }
 
 
     public void replace(String id, Item item) {
+        int indexA = 0;
         if (position != 0) {
             for (Item findId : items) {
                 if (findId != null && findId.getId().equals(id)) {
