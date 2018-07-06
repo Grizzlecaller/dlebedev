@@ -183,7 +183,7 @@ public class StartUI {
         Item findId = tracker.findById(id);
         if (findId == null) {
             System.out.println("Id not found");
-        }else {
+        } else {
             System.out.println("Name : " + findId.getName());
             System.out.println("Description : " + findId.getDescription());
             System.out.println("Create : " + findId.getDescription());
