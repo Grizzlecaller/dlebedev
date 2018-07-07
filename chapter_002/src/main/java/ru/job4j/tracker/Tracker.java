@@ -63,16 +63,16 @@ public class Tracker {
 
     public Item[] findAll() {
 
-        int findAllItemsCounter = 0;
+        int index = 0;
 
         Item[] result = new Item[this.position];
         for (Item notNullCounter : items) {
             if (notNullCounter != null) {
-                result[findAllItemsCounter] = notNullCounter;
-                findAllItemsCounter++;
+                result[index] = notNullCounter;
+                index++;
             }
         }
-        return result;
+        return Arrays.copyOf(items, index);
     }
 
     /**
@@ -154,28 +154,32 @@ public class Tracker {
     }*/
 
 
-    public void delete(String id) {
+    public boolean delete(String id) {
+        boolean k = false;
         for (int index = 0; index != this.position; index++) {
             if (items[index] != null && items[index].getId().equals(id)) {
                 System.arraycopy(this.items, index + 1, this.items, index, this.position - index);
                 this.position--;
+                k = true;
                 break;
             }
-        }
+        } return k;
     }
 
 
-    public void replace(String id, Item item) {
-        int indexA = 0;
+    public boolean replace(String id, Item item) {
+        boolean k = false;
+        int index = 0;
         if (position != 0) {
             for (Item findId : items) {
                 if (findId != null && findId.getId().equals(id)) {
                     item.setId(id);
-                    items[indexA] = item;
+                    items[index] = item;
+                    k = true;
                     break;
                 }
-                indexA++;
+                index++;
             }
-        }
+        } return k;
     }
 }
