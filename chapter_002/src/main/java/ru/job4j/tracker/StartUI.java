@@ -141,7 +141,11 @@ public class StartUI {
         long create = 0;
         create = Long.parseLong(sCreate);
         Item newItem = new Item(name, desc, create);
-        tracker.replace(id, newItem);
+        if (tracker.replace(id, newItem)) {
+            System.out.println("Edit successful!");
+        } else {
+            System.out.println("Item not found!");
+        }
         System.out.println("------------ End editReplace --------------");
     }
 
@@ -150,12 +154,11 @@ public class StartUI {
         System.out.println("------------ Start deleteItem --------------");
         String id = this.input.ask("id? :");
         System.out.println("------------ Analise --------------");
-        tracker.delete(id);
-        //Item[] resultDelete = tracker.getAll();
-        //int resultDeleteLength = resultDelete.length;
-        //for (int i = 0; i < resultDeleteLength - 1; i++) {
-        //    System.out.println(resultDelete[i].getName());
-        //}
+        if (tracker.delete(id)) {
+            System.out.println("Delete Successful!");
+        } else {
+            System.out.println("Item not Found!");
+        }
         System.out.println("------------ End deleteItem --------------");
     }
 
