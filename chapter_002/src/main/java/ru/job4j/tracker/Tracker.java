@@ -180,6 +180,7 @@ public class Tracker {
                 }
                 index++;
             }
-        } return k;
+        }
+        return k;
     }
 }
