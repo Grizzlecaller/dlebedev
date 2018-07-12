@@ -161,25 +161,7 @@ public class StartUI {
         }
         System.out.println("------------ End deleteItem --------------");
     }
-
-    // 4 Done findById
-    /**private void findItemByIdUI() {
-        System.out.println("------------ Start findItemById --------------");
-        String id = this.input.ask("id? :");
-        Item resultId;
-        Item[] findAll = tracker.getAll();
-        for (Item findId : findAll) {
-            if (findId.getId().equals(id)) {
-                resultId = tracker.findById(id);
-                System.out.println("Name : " + resultId.getName());
-                System.out.println("Description : " + resultId.getDescription());
-                System.out.println("Create : " + resultId.getDescription());
-            } else {
-                System.out.println("Id not found");
-            }
-        }
-        System.out.println("------------ End findItemById --------------");
-    }*/
+    //4 Done findItemById
     private void findItemByIdUI() {
         System.out.println("------------ Start findItemById --------------");
         String id = this.input.ask("id? :");

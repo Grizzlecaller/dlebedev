@@ -81,37 +81,6 @@ public class Tracker {
      *
      */
 
-    /**public Item[] findByName(String key) {
-        for (Item findName : items) {
-            if (findName != null && findName.getName().equals(key)) {
-                findByNameItemResultCounter++;
-            }
-        }
-        Item[] result = new Item[findByNameItemResultCounter];
-        for (Item findName : items) {
-            if (findName != null && findName.getName().equals(key)) {
-                result[indexFindByNameOut] = this.items[indexFindByNameIn];
-                indexFindByNameOut++;
-            }
-            indexFindByNameIn++;
-        }
-        return result;
-    }*/
-
-    /**public Item[] findByName(String key) {
-        int destNameCounter = 0;
-        int srcNameCounter = 0;
-        Item[] result = new Item[this.position];
-        for (Item findName : items) {
-            if (findName != null && findName.getName().equals(key)) {
-                System.arraycopy(items, srcNameCounter, result, destNameCounter, 1);
-                destNameCounter++;
-            }
-            srcNameCounter++;
-        }
-        return result;
-    }*/
-
     public Item[] findByName(String key) {
         int index = 0;
         Item[] result = new Item[this.position];
@@ -121,38 +90,6 @@ public class Tracker {
             }
         } return Arrays.copyOf(result, index);
     }
-
-
-    /**public void delete(String id) {
-        int itemsLength = this.position;
-
-        Item tmp;
-        for (Item deleteItem : items) {
-            if (deleteItem != null && deleteItem.getId().equals(id)) {
-                for (int index = deleteCounter; index != this.position; index++) {
-                    tmp = this.items[index];
-                    this.items[index] = this.items[index + 1];
-                    this.items[index + 1] = tmp;
-                }
-            }
-            deleteCounter++;
-        }
-        System.arraycopy(items, 0, items, 0, itemsLength - 1);
-    }*/
-
-    /**public void delete(String id) {
-        int itemsLength = this.position;
-        Item tmp;
-        for (int index = 0; index != this.position; index++) {
-            if (items[index] != null && items[index].getId().equals(id)) {
-                tmp = this.items[index];
-                this.items[index] = this.items[index + 1];
-                this.items[index + 1] = tmp;
-            }
-        }
-        System.arraycopy(this.items, 0, this.items, 0, 0);
-    }*/
-
 
     public boolean delete(String id) {
         boolean k = false;
