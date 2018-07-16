@@ -182,7 +182,7 @@ public class StartUI {
         Item[] resultName = tracker.findByName(name);
         int resultNameLength = resultName.length;
         System.out.println("Количество объектов удовлетворяющих критерий поиска : " + (resultNameLength - 1));
-        for (int i = 0; i < resultNameLength - 1; i++) {
+        for (int i = 0; i < resultNameLength; i++) {
             int rezNum = i + 1;
             System.out.println("Результат : " + rezNum);
             System.out.println("Name : " + resultName[i].getName());
