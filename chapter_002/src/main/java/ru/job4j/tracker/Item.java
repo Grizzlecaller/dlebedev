@@ -57,4 +57,14 @@ public class Item {
     public void setCreate(long create) {
         this.create = create;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", create=" + create +
+                '}';
+    }
 }

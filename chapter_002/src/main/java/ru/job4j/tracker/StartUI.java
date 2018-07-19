@@ -181,14 +181,15 @@ public class StartUI {
         String name = this.input.ask("name? :");
         Item[] resultName = tracker.findByName(name);
         int resultNameLength = resultName.length;
-        System.out.println("Количество объектов удовлетворяющих критерий поиска : " + (resultNameLength - 1));
+        System.out.println("Количество объектов удовлетворяющих критерий поиска : " + (resultNameLength));
         for (int i = 0; i < resultNameLength; i++) {
             int rezNum = i + 1;
-            System.out.println("Результат : " + rezNum);
-            System.out.println("Name : " + resultName[i].getName());
-            System.out.println("Description : " + resultName[i].getDescription());
-            System.out.println("Create : " + resultName[i].getDescription());
-            System.out.println("Id : " + resultName[i].getId());
+            System.out.println(toString());
+            //System.out.println("Результат : " + rezNum);
+            //System.out.println("Name : " + resultName[i].getName());
+            //System.out.println("Description : " + resultName[i].getDescription());
+            //System.out.println("Create : " + resultName[i].getDescription());
+            //System.out.println("Id : " + resultName[i].getId());
         }
         System.out.println("------------ End findItemsByName --------------");
     }
