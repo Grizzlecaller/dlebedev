@@ -60,9 +60,9 @@ public class Item {
 
     @Override
     public  String toString() {
-        return "name = " + name + System.lineSeparator() +
-                "description = " + description + System.lineSeparator() +
-                "create = " + create + System.lineSeparator() +
-                "id = " + id;
+        return "name = " + name + System.lineSeparator()
+                + "description = " + description + System.lineSeparator()
+                + "create = " + create + System.lineSeparator()
+                + "id = " + id;
     }
 }
