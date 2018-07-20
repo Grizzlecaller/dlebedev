@@ -59,12 +59,10 @@ public class Item {
     }
 
     @Override
-    public String toString() {
-        return "Item{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", create=" + create +
-                '}';
+    public  String toString() {
+        return "name = " + name + System.lineSeparator() +
+                "description = " + description + System.lineSeparator() +
+                "create = " + create + System.lineSeparator() +
+                "id = " + id;
     }
 }

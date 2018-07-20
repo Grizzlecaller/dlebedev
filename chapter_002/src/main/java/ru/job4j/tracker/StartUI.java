@@ -121,10 +121,7 @@ public class StartUI {
         System.out.println("Количество объектов удовлетворяющих критерий поиска : "  + resultLength);
         for (i = 0; i < resultLength; i++) {
             System.out.println("Элемент № : " + rezNum);
-            System.out.println("Name : " + result[i].getName());
-            System.out.println("Description : " + result[i].getDescription());
-            System.out.println("Create : " + result[i].getCreate());
-            System.out.println("Id: " + result[i].getId());
+            System.out.println(result[i].toString());
             System.out.println("-------------------------------");
             rezNum++;
         }
@@ -169,9 +166,7 @@ public class StartUI {
         if (findId == null) {
             System.out.println("Id not found");
         } else {
-            System.out.println("Name : " + findId.getName());
-            System.out.println("Description : " + findId.getDescription());
-            System.out.println("Create : " + findId.getDescription());
+            System.out.println(findId.toString());
         }
     }
 
@@ -184,12 +179,8 @@ public class StartUI {
         System.out.println("Количество объектов удовлетворяющих критерий поиска : " + (resultNameLength));
         for (int i = 0; i < resultNameLength; i++) {
             int rezNum = i + 1;
-            System.out.println(toString());
-            //System.out.println("Результат : " + rezNum);
-            //System.out.println("Name : " + resultName[i].getName());
-            //System.out.println("Description : " + resultName[i].getDescription());
-            //System.out.println("Create : " + resultName[i].getDescription());
-            //System.out.println("Id : " + resultName[i].getId());
+            System.out.println("Результат : " + rezNum);
+            System.out.println(resultName[i].toString());
         }
         System.out.println("------------ End findItemsByName --------------");
     }
