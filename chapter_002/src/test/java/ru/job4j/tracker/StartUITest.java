@@ -10,10 +10,30 @@ import org.junit.Test;
 
 import javax.sound.midi.Track;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.StringJoiner;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class StartUITest {
+    private final PrintStream stdout = System.out;
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+    @Before
+    public void loadOutput() {
+        System.out.println("execute before method");
+        System.setOut(new PrintStream(this.out));
+    }
+
+    @After
+    public void backOutput() {
+        System.setOut(this.stdout);
+        System.out.println("execute after method");
+    }
     @Test //add
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();     // создаём Tracker
@@ -46,4 +66,145 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         assertThat(tracker.getAll()[1].getName(), is("test name2"));
     }
+
+    @Test //showall
+    public void whenAddThreeItemThackerHasNewItemsThenShowAllItems() {
+        Tracker tracker = new Tracker();
+        Item item0 = tracker.add(new Item("test name0", "desc0", 10123));
+        Item item1 = tracker.add(new Item("test name1", "desc1", 11223));
+        Item item2 = tracker.add(new Item("test name2", "desc2", 10323));
+        Input input = new StubInput(new String[]{"1", "6"});
+        new StartUI(input, tracker).init();
+        assertThat(
+                new String(this.out.toByteArray()),
+                is(
+                        new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                                .add("Меню.")
+                                .add("0. Add new Item")
+                                .add("1. Show all items")
+                                .add("2. Edit item")
+                                .add("3. Delete item")
+                                .add("4. Find item by Id")
+                                .add("5. Find items by name")
+                                .add("6. Exit Program")
+                                .add("------------ Start findAllItems --------------")
+                                .add("Количество объектов удовлетворяющих критерий поиска : 3")
+                                .add("Элемент № : 1")
+                                .add("name" + " " + "=" + " " + item0.getName())
+                                .add("description" + " " + "=" + " " + item0.getDescription())
+                                .add("create" + " " + "=" + " " + item0.getCreate())
+                                .add("id" + " " + "=" + " " + item0.getId())
+                                .add("-------------------------------")
+                                .add("Элемент № : 2")
+                                .add("name" + " " + "=" + " " + item1.getName())
+                                .add("description" + " " + "=" + " " + item1.getDescription())
+                                .add("create" + " " + "=" + " " + item1.getCreate())
+                                .add("id" + " " + "=" + " " + item1.getId())
+                                .add("-------------------------------")
+                                .add("Элемент № : 3")
+                                .add("name" + " " + "=" + " " + item2.getName())
+                                .add("description" + " " + "=" + " " + item2.getDescription())
+                                .add("create" + " " + "=" + " " + item2.getCreate())
+                                .add("id" + " " + "=" + " " + item2.getId())
+                                .add("-------------------------------")
+                                .add("------------ End findAllItems --------------")
+                                .add("Меню.")
+                                .add("0. Add new Item")
+                                .add("1. Show all items")
+                                .add("2. Edit item")
+                                .add("3. Delete item")
+                                .add("4. Find item by Id")
+                                .add("5. Find items by name")
+                                .add("6. Exit Program")
+                                .toString()
+                )
+        );
+    }
+
+    @Test //findById
+    public void whenAddThreeItemThackerHasNewItemsThenfindById() {
+        Tracker tracker = new Tracker();
+        Item item0 = tracker.add(new Item("test name0", "desc0", 10123));
+        Item item1 = tracker.add(new Item("test name1", "desc1", 11223));
+        Item item2 = tracker.add(new Item("test name2", "desc2", 10323));
+        Input input = new StubInput(new String[]{"4", item1.getId(), "6"});
+        new StartUI(input, tracker).init();
+        assertThat(
+                new String(this.out.toByteArray()),
+                is(
+                        new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                                .add("Меню.")
+                                .add("0. Add new Item")
+                                .add("1. Show all items")
+                                .add("2. Edit item")
+                                .add("3. Delete item")
+                                .add("4. Find item by Id")
+                                .add("5. Find items by name")
+                                .add("6. Exit Program")
+                                .add("------------ Start findItemById --------------")
+                                .add("name" + " " + "=" + " " + item1.getName())
+                                .add("description" + " " + "=" + " " + item1.getDescription())
+                                .add("create" + " " + "=" + " " + item1.getCreate())
+                                .add("id" + " " + "=" + " " + item1.getId())
+                                .add("Меню.")
+                                .add("0. Add new Item")
+                                .add("1. Show all items")
+                                .add("2. Edit item")
+                                .add("3. Delete item")
+                                .add("4. Find item by Id")
+                                .add("5. Find items by name")
+                                .add("6. Exit Program")
+                                .toString()
+                )
+        );
+    }
+
+    @Test //findById
+    public void whenAddThreeItemThackerHasNewItemsThenfindByName() {
+        Tracker tracker = new Tracker();
+        Item item0 = tracker.add(new Item("test name0", "desc0", 10123));
+        Item item1 = tracker.add(new Item("test name1", "desc1", 11223));
+        Item item2 = tracker.add(new Item("test name2", "desc2", 10323));
+        Input input = new StubInput(new String[]{"5", item2.getName(), "6"});
+        new StartUI(input, tracker).init();
+        assertThat(
+                new String(this.out.toByteArray()),
+                is(
+                        new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                                .add("Меню.")
+                                .add("0. Add new Item")
+                                .add("1. Show all items")
+                                .add("2. Edit item")
+                                .add("3. Delete item")
+                                .add("4. Find item by Id")
+                                .add("5. Find items by name")
+                                .add("6. Exit Program")
+                                .add("------------ Start findItemsByName --------------")
+                                .add("Количество объектов удовлетворяющих критерий поиска : 1")
+                                .add("Результат : 1")
+                                .add("name" + " " + "=" + " " + item2.getName())
+                                .add("description" + " " + "=" + " " + item2.getDescription())
+                                .add("create" + " " + "=" + " " + item2.getCreate())
+                                .add("id" + " " + "=" + " " + item2.getId())
+                                .add("------------ End findItemsByName --------------")
+                                .add("Меню.")
+                                .add("0. Add new Item")
+                                .add("1. Show all items")
+                                .add("2. Edit item")
+                                .add("3. Delete item")
+                                .add("4. Find item by Id")
+                                .add("5. Find items by name")
+                                .add("6. Exit Program")
+
+
+
+
+
+
+
+                                .toString()
+                )
+        );
+    }
+
 }
