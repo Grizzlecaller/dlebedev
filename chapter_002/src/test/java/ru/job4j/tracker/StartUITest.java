@@ -23,6 +23,17 @@ public class StartUITest {
     private final PrintStream stdout = System.out;
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
+    public String forStartUITest() {
+        return "Меню." + System.lineSeparator()
+                + "0. Add new Item" + System.lineSeparator()
+                + "1. Show all items" + System.lineSeparator()
+                + "2. Edit item" + System.lineSeparator()
+                + "3. Delete item" + System.lineSeparator()
+                + "4. Find item by Id" + System.lineSeparator()
+                + "5. Find items by name" + System.lineSeparator()
+                + "6. Exit Program";
+    }
+
     @Before
     public void loadOutput() {
         System.out.println("execute before method");
@@ -79,14 +90,7 @@ public class StartUITest {
                 new String(this.out.toByteArray()),
                 is(
                         new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                                .add("Меню.")
-                                .add("0. Add new Item")
-                                .add("1. Show all items")
-                                .add("2. Edit item")
-                                .add("3. Delete item")
-                                .add("4. Find item by Id")
-                                .add("5. Find items by name")
-                                .add("6. Exit Program")
+                                .add(forStartUITest())
                                 .add("------------ Start findAllItems --------------")
                                 .add("Количество объектов удовлетворяющих критерий поиска : 3")
                                 .add("Элемент № : 1")
@@ -108,14 +112,7 @@ public class StartUITest {
                                 .add("id" + " " + "=" + " " + item2.getId())
                                 .add("-------------------------------")
                                 .add("------------ End findAllItems --------------")
-                                .add("Меню.")
-                                .add("0. Add new Item")
-                                .add("1. Show all items")
-                                .add("2. Edit item")
-                                .add("3. Delete item")
-                                .add("4. Find item by Id")
-                                .add("5. Find items by name")
-                                .add("6. Exit Program")
+                                .add(forStartUITest())
                                 .toString()
                 )
         );
@@ -133,33 +130,19 @@ public class StartUITest {
                 new String(this.out.toByteArray()),
                 is(
                         new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                                .add("Меню.")
-                                .add("0. Add new Item")
-                                .add("1. Show all items")
-                                .add("2. Edit item")
-                                .add("3. Delete item")
-                                .add("4. Find item by Id")
-                                .add("5. Find items by name")
-                                .add("6. Exit Program")
+                                .add(forStartUITest())
                                 .add("------------ Start findItemById --------------")
                                 .add("name" + " " + "=" + " " + item1.getName())
                                 .add("description" + " " + "=" + " " + item1.getDescription())
                                 .add("create" + " " + "=" + " " + item1.getCreate())
                                 .add("id" + " " + "=" + " " + item1.getId())
-                                .add("Меню.")
-                                .add("0. Add new Item")
-                                .add("1. Show all items")
-                                .add("2. Edit item")
-                                .add("3. Delete item")
-                                .add("4. Find item by Id")
-                                .add("5. Find items by name")
-                                .add("6. Exit Program")
+                                .add(forStartUITest())
                                 .toString()
                 )
         );
     }
 
-    @Test //findById
+    @Test //findByName
     public void whenAddThreeItemThackerHasNewItemsThenfindByName() {
         Tracker tracker = new Tracker();
         Item item0 = tracker.add(new Item("test name0", "desc0", 10123));
@@ -171,14 +154,7 @@ public class StartUITest {
                 new String(this.out.toByteArray()),
                 is(
                         new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                                .add("Меню.")
-                                .add("0. Add new Item")
-                                .add("1. Show all items")
-                                .add("2. Edit item")
-                                .add("3. Delete item")
-                                .add("4. Find item by Id")
-                                .add("5. Find items by name")
-                                .add("6. Exit Program")
+                                .add(forStartUITest())
                                 .add("------------ Start findItemsByName --------------")
                                 .add("Количество объектов удовлетворяющих критерий поиска : 1")
                                 .add("Результат : 1")
@@ -187,14 +163,7 @@ public class StartUITest {
                                 .add("create" + " " + "=" + " " + item2.getCreate())
                                 .add("id" + " " + "=" + " " + item2.getId())
                                 .add("------------ End findItemsByName --------------")
-                                .add("Меню.")
-                                .add("0. Add new Item")
-                                .add("1. Show all items")
-                                .add("2. Edit item")
-                                .add("3. Delete item")
-                                .add("4. Find item by Id")
-                                .add("5. Find items by name")
-                                .add("6. Exit Program")
+                                .add(forStartUITest())
                                 .toString()
                 )
         );
