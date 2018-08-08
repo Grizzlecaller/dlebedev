@@ -1,0 +1,35 @@
+package ru.job4j.tracker;
+
+/**
+ * Class EditReplaceActions
+ * @author Dmitry Lebedev (mailto:dylebedev.social@gmail.com)
+ * @since 08.08.2018
+ */
+
+public class EditReplaceActions implements UserAction {
+    @Override
+    public int key() {
+        return EDIT;
+    }
+    @Override
+    public void editReplace() {
+        System.out.println("------------ Start editReplace --------------");
+        String id = input.ask("id task for edit? :");
+        String name = input.ask("Введите новое имя заявки :");
+        String desc = input.ask("Введите новое описание заявки :");
+        String sCreate = input.ask("Введите новое create :");
+        long create = 0;
+        create = Long.parseLong(sCreate);
+        Item newItem = new Item(name, desc, create);
+        if (tracker.replace(id, newItem)) {
+            System.out.println("Edit successful!");
+        } else {
+            System.out.println("Item not found!");
+        }
+        System.out.println("------------ End editReplace --------------");
+    }
+    @Override
+    public String info() {
+        return "Edit item";
+    }
+}
