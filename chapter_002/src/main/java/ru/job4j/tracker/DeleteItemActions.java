@@ -10,7 +10,7 @@ public class DeleteItemActions implements UserAction {
 
     @Override
     public int key() {
-        return DELETE;
+        return 3;
     }
     @Override
     public void execute(Input input, Tracker tracker) {

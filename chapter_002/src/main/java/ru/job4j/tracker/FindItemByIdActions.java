@@ -9,7 +9,7 @@ package ru.job4j.tracker;
 public class FindItemByIdActions implements UserAction {
     @Override
     public int key() {
-        return FINDITEMBYID;
+        return 4;
     }
     @Override
     public void execute(Input input, Tracker tracker) {

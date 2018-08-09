@@ -9,7 +9,7 @@ package ru.job4j.tracker;
 public class ShowAllActions implements UserAction {
     @Override
     public int key() {
-        return SHOWALL;
+        return 1;
     }
     @Override
     public void execute(Input input, Tracker tracker) {

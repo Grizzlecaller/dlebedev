@@ -9,7 +9,7 @@ package ru.job4j.tracker;
 public class FindItemByNameActions implements UserAction {
     @Override
     public int key() {
-        return FINDITEMSBYNAME;
+        return 5;
     }
     @Override
     public void execute(Input input, Tracker tracker) {

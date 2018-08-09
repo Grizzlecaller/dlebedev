@@ -9,7 +9,7 @@ package ru.job4j.tracker;
 public class AddActions implements UserAction {
     @Override
     public int key() {
-        return ADD;
+        return 0;
     }
     @Override
     public void execute(Input input, Tracker tracker) {
@@ -27,8 +27,4 @@ public class AddActions implements UserAction {
     public String info() {
         return "Add new Item";
     }
-
-
-
-
 }
