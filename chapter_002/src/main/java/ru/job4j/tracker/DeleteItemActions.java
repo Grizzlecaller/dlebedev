@@ -1,18 +1,19 @@
 package ru.job4j.tracker;
 
 /**
- * Class DeleteItem
+ * Class DeleteItemActions
  * @author Dmitry Lebedev (mailto:dylebedev.social@gmail.com)
  * @since 08.08.2018
  */
 
-public class DeleteItem implements UserAction {
+public class DeleteItemActions implements UserAction {
+
     @Override
     public int key() {
         return DELETE;
     }
     @Override
-    public void deleteItem() {
+    public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Start deleteItem --------------");
         String id = input.ask("id? :");
         System.out.println("------------ Analise --------------");

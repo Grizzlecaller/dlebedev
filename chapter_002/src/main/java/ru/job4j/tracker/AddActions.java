@@ -12,7 +12,7 @@ public class AddActions implements UserAction {
         return ADD;
     }
     @Override
-    public void execute() {
+    public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Добавление новой заявки --------------");
         String name = input.ask("Введите имя заявки :");
         String desc = input.ask("Введите описание заявки :");

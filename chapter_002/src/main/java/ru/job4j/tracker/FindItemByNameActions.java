@@ -1,18 +1,18 @@
 package ru.job4j.tracker;
 
 /**
- * Class FindItemByName
+ * Class FindItemByNameActions
  * @author Dmitry Lebedev (mailto:dylebedev.social@gmail.com)
  * @since 08.08.2018
  */
 
-public class FindItemByName implements UserAction {
+public class FindItemByNameActions implements UserAction {
     @Override
     public int key() {
         return FINDITEMSBYNAME;
     }
     @Override
-    public void findItemsByName() {
+    public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Start findItemsByName --------------");
         String name = input.ask("name? :");
         Item[] resultName = tracker.findByName(name);

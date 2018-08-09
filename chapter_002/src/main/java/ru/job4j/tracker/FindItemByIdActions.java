@@ -12,7 +12,7 @@ public class FindItemByIdActions implements UserAction {
         return FINDITEMBYID;
     }
     @Override
-    public void findItemByIdUI() {
+    public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Start findItemById --------------");
         String id = input.ask("id? :");
         Item findId = tracker.findById(id);

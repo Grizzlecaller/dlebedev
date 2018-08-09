@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class MenuTracker
@@ -47,12 +47,12 @@ public class MenuTracker {
      * Метод заполняет массив.
      */
     public void fillActions() {
-        this.actions.add(new AddItem(0, "Add program"));
-        this.actions.add(new ShowItems(1, "Show all items"));
-        this.actions.add(new MenuTracker.EditItem(2, "Edit item"));
-        this.actions.add(new MenuTracker.DeleteItem(3, "Delete item"));
-        this.actions.add(new FindItemById(4, "Find item by Id"));
-        this.actions.add(new FindItemsByName(5, "Find items by name"));
+        this.actions.add(new AddActions(0, "Add program"));
+        this.actions.add(new ShowAllActions(1, "Show all items"));
+        this.actions.add(new EditReplaceActions(2, "Edit item"));
+        this.actions.add(new DeleteItemActions(3, "Delete item"));
+        this.actions.add(new FindItemByIdActions(4, "Find item by Id"));
+        this.actions.add(new FindItemByNameActions(5, "Find items by name"));
         this.actions.add(new ExitProgram(6, "Exit Program"));
     }
 

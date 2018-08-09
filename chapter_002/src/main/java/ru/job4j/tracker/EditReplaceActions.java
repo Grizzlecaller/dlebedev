@@ -12,7 +12,7 @@ public class EditReplaceActions implements UserAction {
         return EDIT;
     }
     @Override
-    public void editReplace() {
+    public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Start editReplace --------------");
         String id = input.ask("id task for edit? :");
         String name = input.ask("Введите новое имя заявки :");

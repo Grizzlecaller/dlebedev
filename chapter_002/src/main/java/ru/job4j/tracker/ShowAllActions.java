@@ -12,7 +12,7 @@ public class ShowAllActions implements UserAction {
         return SHOWALL;
     }
     @Override
-    public void findAllItems() {
+    public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Start findAllItems --------------");
         Item[] result = tracker.getAll();
         int resultLength = result.length;
