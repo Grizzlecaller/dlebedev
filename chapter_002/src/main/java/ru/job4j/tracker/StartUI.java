@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 
-import java.math.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,40 +10,6 @@ import java.util.List;
  */
 
 public class StartUI {
-    /**
-     * Константа меню для добавления новой заявки.
-     */
-    private static final String ADD = "0";
-
-    /**
-     * Константа для отображения всех заявок
-     */
-    private static final String SHOWALL = "1";
-
-    /**
-     * Константа для редактирования заявки
-     */
-    private static final String EDIT = "2";
-
-    /**
-     * Константа для удаления заявки
-     */
-    private static final String DELETE = "3";
-
-    /**
-     * Константа для поиска заявки по id
-     */
-    private static final String FINDITEMBYID = "4";
-
-    /**
-     * Константа для поиска заявки по name
-     */
-    private static final String FINDITEMSBYNAME = "5";
-
-    /**
-     * Константа для выхода из цикла.
-     */
-    private static final String EXIT = "6";
 
     /**
      * Получение данных от пользователя.

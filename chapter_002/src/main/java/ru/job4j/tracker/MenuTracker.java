@@ -53,7 +53,7 @@ public class MenuTracker {
         this.actions.add(new DeleteItemActions(3, "Delete item"));
         this.actions.add(new FindItemByIdActions(4, "Find item by Id"));
         this.actions.add(new FindItemByNameActions(5, "Find items by name"));
-        this.actions.add(new ExitProgram(6, "Exit Program"));
+        this.actions.add(new ExitActions(6, "Exit Program"));
     }
 
     /**
