@@ -7,10 +7,17 @@ package ru.job4j.tracker;
  */
 
 public class DeleteItemActions implements UserAction {
+    private int key;
+    private String name;
 
     @Override
     public int key() {
         return 3;
+    }
+
+    public DeleteItemActions(int key, String name) {
+        this.key = key;
+        this.name = name;
     }
     @Override
     public void execute(Input input, Tracker tracker) {
@@ -26,6 +33,6 @@ public class DeleteItemActions implements UserAction {
     }
     @Override
     public String info() {
-        return "Delete item";
+        return String.format("%s, %s", key, name);
     }
 }

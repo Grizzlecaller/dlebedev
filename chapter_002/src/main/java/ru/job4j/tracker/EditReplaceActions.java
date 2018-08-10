@@ -7,10 +7,19 @@ package ru.job4j.tracker;
  */
 
 public class EditReplaceActions implements UserAction {
+    private int key;
+    private String name;
+
     @Override
     public int key() {
         return 2;
     }
+
+    public EditReplaceActions(int key, String name) {
+        this.key = key;
+        this.name = name;
+    }
+
     @Override
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Start editReplace --------------");
@@ -30,6 +39,6 @@ public class EditReplaceActions implements UserAction {
     }
     @Override
     public String info() {
-        return "Edit item";
+        return String.format("%s, %s", key, name);
     }
 }

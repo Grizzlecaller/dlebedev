@@ -7,10 +7,19 @@ package ru.job4j.tracker;
  */
 
 public class ShowAllActions implements UserAction {
+    private int key;
+    private String name;
+
     @Override
     public int key() {
         return 1;
     }
+
+    public ShowAllActions(int key, String name) {
+        this.key = key;
+        this.name = name;
+    }
+
     @Override
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Start findAllItems --------------");
