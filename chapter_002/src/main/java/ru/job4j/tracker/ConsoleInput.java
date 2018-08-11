@@ -12,7 +12,7 @@ public class ConsoleInput implements Input {
 
     private Scanner scanner = new Scanner(System.in);
 
-    public String ask(String question) {
+    public int ask(String question, List<Integer> range) {
         System.out.println(question);
         return scanner.nextLine();
     }

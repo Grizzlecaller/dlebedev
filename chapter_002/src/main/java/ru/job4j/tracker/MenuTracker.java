@@ -75,4 +75,11 @@ public class MenuTracker {
             }
         }
     }
+    public List<Integer> range() {
+        List<Integer> integers = new ArrayList<>();
+        for (UserAction action : actions) {
+            integers.add(action.key());
+        }
+        return integers;
+    }
 }
