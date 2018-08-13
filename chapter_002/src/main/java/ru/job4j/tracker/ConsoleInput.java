@@ -14,6 +14,6 @@ public class ConsoleInput implements Input {
 
     public int ask(String question, List<Integer> range) {
         System.out.println(question);
-        return scanner.nextLine();
+        return Integer.parseInt(scanner.nextLine());
     }
 }

@@ -22,7 +22,7 @@ public class DeleteItemActions implements UserAction {
     @Override
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Start deleteItem --------------");
-        String id = input.ask("id? :");
+        String id = String.valueOf(input.ask("id? :"));
         System.out.println("------------ Analise --------------");
         if (tracker.delete(id)) {
             System.out.println("Delete Successful!");
