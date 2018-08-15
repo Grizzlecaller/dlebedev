@@ -38,13 +38,11 @@ public class StartUI {
      * Основой цикл программы.
      */
     public void init() {
-        //Tracker tracker = new Tracker();
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         menu.fillActions();
-        menu.select(input.ask("select:", menu.range()));
         do {
             menu.show();
-            menu.select(input.ask("select:"));
+            menu.select(input.ask("select:", menu.range()));
         } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
 

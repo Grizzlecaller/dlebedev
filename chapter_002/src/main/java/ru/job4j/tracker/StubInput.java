@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.List;
+
 /**
  * Class StubInput
  * @author Dmitry Lebedev
@@ -36,8 +38,9 @@ public class StubInput implements Input {
      * Для этого при каждом вызове метода ask мы увеличиваем счетчик и
      * при следующем вызове он вернет нам новое значение.
      */
+
     @Override
-    public String ask(String question) {
-        return this.value[this.position++];
+    public int ask(String question, List<Integer> range) {
+        return Integer.parseInt(value[position++]);
     }
 }

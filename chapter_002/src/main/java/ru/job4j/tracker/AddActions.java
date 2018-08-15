@@ -25,7 +25,7 @@ public class AddActions implements UserAction {
         System.out.println("------------ Добавление новой заявки --------------");
         String name = input.ask("Введите имя заявки :");
         String desc = input.ask("Введите описание заявки :");
-        String sCreate = input.ask("Введите create :", );
+        String sCreate = input.ask("Введите create :");
         long create;
         create = Long.parseLong(sCreate);
         Item item = new Item(name, desc, create);
