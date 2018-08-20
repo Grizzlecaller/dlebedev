@@ -27,7 +27,7 @@ public class ConsoleInput implements Input {
                 key = Integer.parseInt(scanner.nextLine()); //считываем данные
                 for (Integer r : range) { //запускаем цикл по массиву
                     if (key == r) { //если нашли совпадение то данный ключ существует
-                        b = false; //меняем флаг чтоб выйте изцикла
+                        b = false; //меняем флаг чтоб выйти из цикла
                         break;
                     }
                 }
