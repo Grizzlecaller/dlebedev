@@ -36,6 +36,6 @@ public class FindItemByNameActions implements UserAction {
     }
     @Override
     public String info() {
-        return String.format("%s, %s", key, name);
+        return String.format("%s. %s", key, name);
     }
 }
