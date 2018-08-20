@@ -38,6 +38,6 @@ public class ShowAllActions implements UserAction {
     }
     @Override
     public String info() {
-        return "Show all items";
+        return String.format("%s, %s", key, name);
     }
 }
