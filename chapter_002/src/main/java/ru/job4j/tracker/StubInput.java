@@ -43,4 +43,9 @@ public class StubInput implements Input {
     public int ask(String question, List<Integer> range) {
         return Integer.parseInt(value[position++]);
     }
+
+    @Override
+    public String ask(String question) {
+        return value[position++];
+    }
 }
