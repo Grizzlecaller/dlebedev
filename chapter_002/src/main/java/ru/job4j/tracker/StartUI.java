@@ -24,6 +24,7 @@ public class StartUI {
      */
     private final Tracker tracker;
 
+    private boolean work = true;
     /**
      * Конструтор инициализирующий поля.
      * @param input ввод данных.
@@ -39,11 +40,15 @@ public class StartUI {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        menu.fillActions();
+        menu.fillActions(this);
         do {
             menu.show();
             menu.select(input.ask("select:", menu.range()));
-        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+        } while (this.work);  //(!"y".equals(this.input.ask("Exit?(y): ")));
+    }
+
+    public void stop() {
+        this.work = false;
     }
 
 

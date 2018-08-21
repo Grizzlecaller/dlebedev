@@ -8,23 +8,22 @@ package ru.job4j.tracker;
 public class ExitActions implements UserAction {
     private int key;
     private String name;
+    private final StartUI sUI;
 
     @Override
     public int key() {
         return 6;
     }
 
-    public ExitActions(int key, String name) {
+    public ExitActions(int key, String name, StartUI sUI) {
         this.key = key;
         this.name = name;
+        this.sUI = sUI;
     }
 
     @Override
     public void execute(Input input, Tracker tracker) {
-        boolean exit = false;
-        if (input.ask("exit?").equals(key())) {
-            exit = true;
-        }
+       this.sUI.stop();
     }
     @Override
     public String info() {

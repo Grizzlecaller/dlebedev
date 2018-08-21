@@ -46,14 +46,14 @@ public class MenuTracker {
     /**
      * Метод заполняет массив.
      */
-    public void fillActions() {
+    public void fillActions(StartUI sUI) {
         this.actions.add(new AddActions(0, "Add new Item"));
         this.actions.add(new ShowAllActions(1, "Show all items"));
         this.actions.add(new EditReplaceActions(2, "Edit item"));
         this.actions.add(new DeleteItemActions(3, "Delete item"));
         this.actions.add(new FindItemByIdActions(4, "Find item by Id"));
         this.actions.add(new FindItemByNameActions(5, "Find items by name"));
-        this.actions.add(new ExitActions(6, "Exit Program"));
+        this.actions.add(new ExitActions(6, "Exit Program", sUI));
     }
 
     /**
