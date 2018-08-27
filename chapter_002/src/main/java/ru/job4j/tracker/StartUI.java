@@ -53,8 +53,8 @@ public class StartUI {
 
 
     public static void main(String[] args) {
-        Input input = new StubInput(new String[] {});
-        new StartUI((new ConsoleInput()), new Tracker()).init();
+        Input input = new ValidateInput(new String[] {});
+        new StartUI((new ValidateInput()), new Tracker()).init();
 
     }
 }
