@@ -8,26 +8,37 @@ package ru.job4j.tracker;
 
 import java.util.List;
 
-public class ValidateInput extends ConsoleInput {
+public class ValidateInput implements Input {
 
-    public ValidateInput(String[] strings) {
+    private final Input input;
+
+    public ValidateInput(final Input input) {
+        this.input = input;
+    }
+
+    @Override
+    public String ask(String question) {
+        return this.input.ask(question);
+    }
+
+    /*public ValidateInput(String[] strings) {
     }
 
     public ValidateInput() {
 
     }
-
+*/
     public int ask(String question, List<Integer> range) {
         boolean invalid = true;
         int value = -1;
         do {
             try {
-                value = super.ask(question, range);
+                value = this.input.ask(question, range);
                 invalid = false;
             } catch (MenuOutException moe) {
                     System.out.println("enter key from menu");
             } catch (NumberFormatException nfe) {
-                System.out.println("enter correct data");
+                System.out.println("Please enter validate data again.");
             }
         } while (invalid);
         return value;

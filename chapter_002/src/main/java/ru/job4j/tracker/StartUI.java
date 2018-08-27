@@ -25,9 +25,11 @@ public class StartUI {
     private final Tracker tracker;
 
     private boolean work = true;
+
     /**
      * Конструтор инициализирующий поля.
-     * @param input ввод данных.
+     *
+     * @param input   ввод данных.
      * @param tracker хранилище заявок.
      */
     public StartUI(Input input, Tracker tracker) {
@@ -53,8 +55,11 @@ public class StartUI {
 
 
     public static void main(String[] args) {
-        Input input = new ValidateInput(new String[] {});
-        new StartUI((new ValidateInput()), new Tracker()).init();
-
+        new StartUI(
+                new ValidateInput(
+                        new ConsoleInput()
+                ),
+                new Tracker()
+        ).init();
     }
 }
