@@ -12,20 +12,23 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.Collections;
+import java.util.ArrayList;
+//import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 public class ValidateInputTest {
-    private static final java.util.List<Integer> List = Collections.singletonList(6);
+    //private static final java.util.List<Integer> List = Collections.singletonList(6);
     private final ByteArrayOutputStream mem = new ByteArrayOutputStream();
     private final PrintStream out = System.out;
+    private List<Integer>list = new ArrayList<>();
 
     @Before
     public void loadMem() {
         System.setOut(new PrintStream(this.mem));
+        list.add(1);
     }
 
     @After
@@ -38,7 +41,7 @@ public class ValidateInputTest {
         ValidateInput input = new ValidateInput(
                 new StubInput(new String[] {"invalid", "1"})
         );
-        input.ask("Enter", List);
+        input.ask("Enter", list);
         assertThat(
                 this.mem.toString(),
                 is(
