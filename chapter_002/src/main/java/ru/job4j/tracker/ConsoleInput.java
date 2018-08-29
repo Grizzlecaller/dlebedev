@@ -26,9 +26,8 @@ public class ConsoleInput implements Input {
     }
 
     public int ask(String question, List<Integer> range) {
-        /*System.out.println(question);
-        int key = 0;
-        boolean b = true;
+        System.out.println(question);
+        /*boolean b = true;
         do {
             try { //заварачиваем в трай если вдруг пользователь решит ввести строку а не цифру
                 key = Integer.parseInt(scanner.nextLine()); //считываем данные
@@ -54,12 +53,16 @@ public class ConsoleInput implements Input {
                 exist = true;
                 break;
             }
-
         }
         if (exist) {
             return  key;
         } else {
             throw new MenuOutException("out of menu range");
         }
+    }
+    public Boolean checkMenuNumber() {
+        boolean b = false;
+
+        return true;
     }
 }
