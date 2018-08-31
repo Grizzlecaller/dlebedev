@@ -23,7 +23,7 @@ public class ValidateInputTest {
     //private static final java.util.List<Integer> List = Collections.singletonList(6);
     private final ByteArrayOutputStream mem = new ByteArrayOutputStream();
     private final PrintStream out = System.out;
-    private List<Integer>list = new ArrayList<>();
+    private List<Integer> list = new ArrayList<>();
 
     @Before
     public void loadMem() {
