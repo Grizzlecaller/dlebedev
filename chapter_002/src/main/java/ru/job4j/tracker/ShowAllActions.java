@@ -21,7 +21,7 @@ public class ShowAllActions implements UserAction {
     }
 
     @Override
-    public void execute(Input input, Tracker tracker) {
+    public void execute(Input input, Tracker tracker)  {
         System.out.println("------------ Start findAllItems --------------");
         Item[] result = tracker.getAll();
         int resultLength = result.length;
