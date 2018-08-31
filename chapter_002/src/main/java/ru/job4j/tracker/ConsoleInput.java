@@ -41,7 +41,7 @@ public class ConsoleInput implements Input {
         return key;
     }
     public Boolean checkMenuNumber() {
-        boolean b = false;
+        boolean b =  false;
 
         return true;
     }
