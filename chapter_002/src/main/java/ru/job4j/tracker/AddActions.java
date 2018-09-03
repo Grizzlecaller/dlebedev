@@ -8,7 +8,7 @@ import java.util.List;
  * @since 08.08.2018
  */
 
-public class AddActions implements UserAction {
+public class AddActions extends BaseAction {
     private int key;
     private String name;
 
@@ -17,8 +17,7 @@ public class AddActions implements UserAction {
         return 0;
     }
     public AddActions(int key, String name) {
-        this.key = key;
-        this.name = name;
+        super(key, name);
     }
     @Override
     public void execute(Input input, Tracker tracker) {
@@ -31,9 +30,5 @@ public class AddActions implements UserAction {
         Item item = new Item(name, desc, create);
         tracker.add(item);
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
-    }
-    @Override
-    public String info() {
-        return String.format("%s. %s", key, name);
     }
 }
