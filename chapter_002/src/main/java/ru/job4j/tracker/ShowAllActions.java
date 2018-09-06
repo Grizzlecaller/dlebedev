@@ -6,7 +6,7 @@ package ru.job4j.tracker;
  * @since 08.08.2018
  */
 
-public class ShowAllActions implements UserAction {
+public class ShowAllActions extends BaseAction {
     private int key;
     private String name;
 
@@ -16,8 +16,7 @@ public class ShowAllActions implements UserAction {
     }
 
     public ShowAllActions(int key, String name) {
-        this.key = key;
-        this.name = name;
+        super(key, name);
     }
 
     @Override
@@ -35,9 +34,5 @@ public class ShowAllActions implements UserAction {
             rezNum++;
         }
         System.out.println("------------ End findAllItems --------------");
-    }
-    @Override
-    public String info() {
-        return String.format("%s. %s", key, name);
     }
 }

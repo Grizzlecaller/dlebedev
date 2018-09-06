@@ -6,7 +6,7 @@ package ru.job4j.tracker;
  * @since 08.08.2018
  */
 
-public class FindItemByNameActions implements UserAction {
+public class FindItemByNameActions extends BaseAction {
     private int key;
     private String name;
 
@@ -16,8 +16,7 @@ public class FindItemByNameActions implements UserAction {
     }
 
     public FindItemByNameActions(int key, String name) {
-        this.key = key;
-        this.name = name;
+        super(key, name);
     }
 
     @Override
@@ -33,9 +32,5 @@ public class FindItemByNameActions implements UserAction {
             System.out.println(resultName[i].toString());
         }
         System.out.println("------------ End findItemsByName --------------");
-    }
-    @Override
-    public String info() {
-        return String.format("%s. %s", key, name);
     }
 }

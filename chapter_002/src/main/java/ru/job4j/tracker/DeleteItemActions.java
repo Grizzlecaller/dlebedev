@@ -6,7 +6,7 @@ package ru.job4j.tracker;
  * @since 08.08.2018
  */
 
-public class DeleteItemActions implements UserAction {
+public class DeleteItemActions extends BaseAction {
     private int key;
     private String name;
 
@@ -16,8 +16,7 @@ public class DeleteItemActions implements UserAction {
     }
 
     public DeleteItemActions(int key, String name) {
-        this.key = key;
-        this.name = name;
+        super(key, name);
     }
     @Override
     public void execute(Input input, Tracker tracker) {
@@ -30,9 +29,5 @@ public class DeleteItemActions implements UserAction {
             System.out.println("Item not Found!");
         }
         System.out.println("------------ End deleteItem --------------");
-    }
-    @Override
-    public String info() {
-        return String.format("%s. %s", key, name);
     }
 }

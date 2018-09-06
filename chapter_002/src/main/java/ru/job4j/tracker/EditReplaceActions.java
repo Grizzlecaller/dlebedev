@@ -6,7 +6,7 @@ package ru.job4j.tracker;
  * @since 08.08.2018
  */
 
-public class EditReplaceActions implements UserAction {
+public class EditReplaceActions extends BaseAction {
     private int key;
     private String name;
 
@@ -16,8 +16,7 @@ public class EditReplaceActions implements UserAction {
     }
 
     public EditReplaceActions(int key, String name) {
-        this.key = key;
-        this.name = name;
+        super(key, name);
     }
 
     @Override
@@ -36,9 +35,5 @@ public class EditReplaceActions implements UserAction {
             System.out.println("Item not found!");
         }
         System.out.println("------------ End editReplace --------------");
-    }
-    @Override
-    public String info() {
-        return String.format("%s. %s", key, name);
     }
 }
