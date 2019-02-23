@@ -1,5 +1,11 @@
 package ru.job4j.search;
 
+/**
+ * Class TrackerTest
+ * @author Dmitry Lebedev
+ * @since 23.02.2019
+ */
+
 public class Person {
     private String name;
     private String surname;

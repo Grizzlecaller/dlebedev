@@ -1,5 +1,11 @@
 package ru.job4j.search;
 
+/**
+ * Class TrackerTest
+ * @author Dmitry Lebedev
+ * @since 23.02.2019
+ */
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +23,9 @@ public class PhoneDictionary {
      */
     public List<Person> find(String key) {
         List<Person> result = new ArrayList<>();
+        for (Person tmp : persons) {
+            result.add(tmp);
+        }
         return result;
     }
 }
