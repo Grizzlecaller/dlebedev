@@ -24,11 +24,11 @@ public class PhoneDictionary {
     public List<Person> find(String key) {
         List<Person> result = new ArrayList<>();
         for (Person tmp : persons) {
-                if (tmp.getAddress() == key || tmp.getName() == key || tmp.getPhone() == key || tmp.getSurname() == key) {
+                if (tmp.getAddress().equals(key) || tmp.getName().equals(key) || tmp.getPhone().equals(key) || tmp.getSurname().equals(key)) {
                     result.add(tmp);
-                } else {
-                    result.add(new Person("", "", "", ""));
-                }
+                } //else {
+                    //result.add(new Person("", "", "", ""));
+                //}
         }
         return result;
     }
