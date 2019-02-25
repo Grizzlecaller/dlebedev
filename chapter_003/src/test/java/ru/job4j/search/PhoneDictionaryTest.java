@@ -1,7 +1,7 @@
 package ru.job4j.search;
 
 /**
- * Class TrackerTest
+ * Class PhoneDictionaryTest
  * @author Dmitry Lebedev
  * @since 23.02.2019
  */
