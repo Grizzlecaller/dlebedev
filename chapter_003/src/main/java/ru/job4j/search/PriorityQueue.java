@@ -18,14 +18,11 @@ public class PriorityQueue {
      * @param task задача
      */
 
-    
-
-    int n = 0;
 
     public void put(Task task) {
         //TODO добавить вставку в связанный список.
-        this.tasks.add(task);
-        n++;
+        this.tasks.add(0, task);
+
     }
 
     public Task take() {
