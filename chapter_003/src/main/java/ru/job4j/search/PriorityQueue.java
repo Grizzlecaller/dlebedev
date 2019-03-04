@@ -21,8 +21,7 @@ public class PriorityQueue {
 
     public void put(Task task) {
         //TODO добавить вставку в связанный список.
-        //int tmp = this.tasks.size() + 1;
-        if (task.getPriority() > this.tasks.size() + 1) { //норм
+        /*if (task.getPriority() > this.tasks.size() + 1) { //норм
             this.tasks.addLast(task);
         } else {
             if (task.getPriority() < this.tasks.getFirst().getPriority()) {
@@ -30,14 +29,16 @@ public class PriorityQueue {
             } else {
                 this.tasks.add(task.getPriority() - 1, task);
             }
-
-        /*}
-        if (task.getPriority() < this.tasks.getFirst().getPriority()) {
-            this.tasks.addFirst(task);
+*/
+        if (task.getPriority() > this.tasks.size() + 1) {
+            this.tasks.addLast(task);
         } else {
-         */
+            if (task.getPriority() < this.tasks.getFirst().getPriority()) {
+                this.tasks.addFirst(task);
+            } else {
+                this.tasks.add(this.tasks.size() - 1, task);
+            }
         }
-
     }
 
     public Task take() {
