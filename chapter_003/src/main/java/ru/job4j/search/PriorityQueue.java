@@ -19,8 +19,24 @@ public class PriorityQueue {
      * @param task задача
      */
 
+    int count = 0;
     public void put(Task task) {
         //TODO добавить вставку в связанный список.
+
+        if (tasks.size() == 0) {
+            this.tasks.add(task);
+        }
+        if (tasks.size() > 0) {
+            if (task.getPriority() > count || task.getPriority() > this.tasks.getLast().getPriority()) {
+                this.tasks.addLast(task);
+            }
+            if (task.getPriority() < count && task.getPriority() < this.tasks.getLast().getPriority()) {
+                this.tasks.add(count - 1, task);
+            }
+        }
+
+        count++;
+
         /*if (task.getPriority() > this.tasks.size() + 1) { //норм
             this.tasks.addLast(task);
         } else {
@@ -30,15 +46,19 @@ public class PriorityQueue {
                 this.tasks.add(task.getPriority() - 1, task);
             }
 */
-        if (task.getPriority() > this.tasks.size() + 1) {
-            this.tasks.addLast(task);
-        } else {
-            if (task.getPriority() < this.tasks.getFirst().getPriority()) {
-                this.tasks.addFirst(task);
-            } else {
-                this.tasks.add(this.tasks.size() - 1, task);
-            }
-        }
+        /**
+         * if (task.getPriority() > this.tasks.size() + 1) {
+         *             this.tasks.addLast(task);
+         *         } else {
+         *             if (task.getPriority() < this.tasks.getFirst().getPriority()) {
+         *                 this.tasks.addFirst(task);
+         *             } else {
+         *                 this.tasks.add(this.tasks.size() - 1, task);
+         *             }
+         *         }
+         */
+
+
     }
 
     public Task take() {
