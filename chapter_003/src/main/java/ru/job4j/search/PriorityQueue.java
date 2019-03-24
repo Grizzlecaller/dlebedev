@@ -23,6 +23,20 @@ public class PriorityQueue {
         //TODO добавить вставку в связанный список.
 
 
+        if (tasks.size() == 0) {
+            this.tasks.add(0, task);
+        } else {
+            for (Task tmp : tasks) {
+                int a = tasks.size();
+                if (task.getPriority() > tmp.getPriority()) {
+                    this.tasks.add(a, task);
+                    break;
+                } else {
+                    this.tasks.add(a - task.getPriority(), task);
+                    break;
+                }
+            }
+        }
     }
 
     public Task take() {
