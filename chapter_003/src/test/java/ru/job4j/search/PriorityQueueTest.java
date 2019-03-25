@@ -22,11 +22,8 @@ public class PriorityQueueTest {
         queue.put(new Task("ten", 10));
         queue.put(new Task("middle", 3));
         queue.put(new Task("four", 4));
-
-
         Task result = queue.take();
         assertThat(result.getDesc(), is("urgent"));
-
 
         for (int i = 0; i < queue.tasks.size(); i++) {
             System.out.println(queue.tasks.get(i).getDesc());
