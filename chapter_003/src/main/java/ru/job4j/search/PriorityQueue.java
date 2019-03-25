@@ -22,16 +22,21 @@ public class PriorityQueue {
     public void put(Task task) {
         //TODO добавить вставку в связанный список.
 
-        int a = this.tasks.size();
+        int a;
 
         if (this.tasks.size() == 0) {
             this.tasks.add(task);
         } else {
-            for (int i = 0; task.getPriority() < this.tasks.get(i).getPriority(); i++) {
-                a = i;
-                break;
+            for (int i = 0; i < this.tasks.size(); i++) {
+                if (task.getPriority() < this.tasks.get(i).getPriority()) {
+                    this.tasks.add(i, task);
+                    break;
+                } else {
+                    if (task.getPriority() > this.tasks.getLast().getPriority()) {
+                        this.tasks.addLast(task);
+                    }
+                }
             }
-            this.tasks.add(a, task);
         }
     }
 
