@@ -14,7 +14,7 @@ public class ConvertList2Array {
         int[][] array = new int[cells][cells];
 
             int x = 0;
-            for (int i = 0; i < rows; i++) {
+            /*for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < cells; j++) {
                     if (x > list.size()) {
                         array[i][j] = 0;
@@ -25,6 +25,9 @@ public class ConvertList2Array {
                     }
                 }
             }
+            */
+
+
         return array;
     }
 }
