@@ -11,7 +11,7 @@ import java.util.List;
 public class ConvertList2Array {
     public int[][] toArray(List<Integer> list, int rows) {
         int cells = rows;
-        int[][] array = new int[cells][cells];
+        int[][] array = new int[rows][cells];
         /**
             int x = 0;
             for (int i = 0; i < rows; i++) {
@@ -35,10 +35,10 @@ public class ConvertList2Array {
 
                 if (j < (cells)) {
                     j++;
-                }
-                if (j == (cells)) {
-                    j = 0;
-                    i++;
+                    if (j == (cells)) {
+                        j = 0;
+                        i++;
+                    }
                 }
             }
             return array;
