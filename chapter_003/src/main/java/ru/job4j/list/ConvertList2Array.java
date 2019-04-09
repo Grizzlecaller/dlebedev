@@ -12,7 +12,7 @@ public class ConvertList2Array {
     public int[][] toArray(List<Integer> list, int rows) {
         int cells = rows;
         int[][] array = new int[cells][cells];
-            /*
+        /**
             int x = 0;
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < cells; j++) {
@@ -25,22 +25,20 @@ public class ConvertList2Array {
                     }
                 }
             }
-            */
+        */
 
             int i = 0;
             int j = 0;
-            int x = 0;
             for (int tmp : list) {
 
-                array[i][j] = list.get(x);
+                array[i][j] = list.get(tmp);
 
-                if (j < (cells - 1)) {
+                if (j < (cells)) {
                     j++;
-                    x++;
-                } else {
-                    i++;
+                }
+                if (j == (cells)) {
                     j = 0;
-                    x++;
+                    i++;
                 }
             }
             return array;
