@@ -29,11 +29,16 @@ public class ConvertList2Array {
 
             int i = 0;
             int j = 0;
+
             for (int tmp : list) {
 
                 array[i][j] = list.get(tmp);
 
-
+                if (j == (3)) {
+                    i++;
+                    j = -1;
+                }
+                j++;
             }
             return array;
     }
