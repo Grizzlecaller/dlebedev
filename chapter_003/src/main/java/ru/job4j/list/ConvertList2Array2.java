@@ -27,4 +27,13 @@ public class ConvertList2Array2 {
         }
         return array;
     }
+
+    public List<Integer> convert (List<int[]> list) {
+        list.add(new int[]{1, 2});
+        list.add(new int[]{3, 4, 5, 6});
+
+        List<Integer> result = convertList.convert(list);
+
+        return result;
+    }
 }
