@@ -6,6 +6,7 @@ package ru.job4j.list;
  * @since 18.04.2019
  */
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConvertList2Array2 {
@@ -31,9 +32,14 @@ public class ConvertList2Array2 {
     public List<Integer> convert (List<int[]> list) {
         list.add(new int[]{1, 2});
         list.add(new int[]{3, 4, 5, 6});
+        List<Integer> result = new ArrayList<>();
 
-        List<Integer> result = convertList.convert(list);
-
+        int i = 0;
+        for (int[] tmpI : list) {
+            for (int tmpJ : tmpI) {
+                result.add(i++, tmpJ);
+            }
+        }
         return result;
     }
 }

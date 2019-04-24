@@ -12,6 +12,7 @@ import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class ConvertList2ArrayTest2 {
     @Test
@@ -37,5 +38,15 @@ public class ConvertList2ArrayTest2 {
         for (Integer temp : list) {
             System.out.println(temp);
         }
+    }
+
+    @Test
+    public void when2MassThen1List() {
+        ConvertList2Array2 list = new ConvertList2Array2();
+        list.convert();
+        List<Integer> expect = Arrays.asList(
+                1, 2, 3, 4, 9, 8, 7, 6, 5
+        );
+        assertThat(result, is(expect));
     }
 }
