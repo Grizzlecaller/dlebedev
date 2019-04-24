@@ -7,6 +7,8 @@ package ru.job4j.list;
  */
 
 import org.junit.Test;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -43,13 +45,25 @@ public class ConvertList2ArrayTest2 {
     @Test
     public void when2MassThen1List() {
         ConvertList2Array2 list = new ConvertList2Array2();
-        List<int[]> tmp1;
+        List<int[]> result = new ArrayList<>();
+        int[] aTmp = new int[4];
+        int aI = 0;
+        for (int a : aTmp) {
+            aTmp[aI] = aI;
+            aI++;
+        }
+        int[] bTmp = new int[4];
+        int bI = 0;
+        for (int b : bTmp) {
+            bTmp[bI] = bI;
+            bI++;
+        }
 
-        tmp1.add(0, 0);
-        tmp1.add(1, 1);
-        list.convert(tmp1);
+        result.add(0, aTmp);
+        result.add(1, bTmp);
+        list.convert(result);
         List<Integer> expect = Arrays.asList(
-                1, 2, 3, 4, 9, 8, 7, 6, 5
+                0, 1, 2, 3, 0, 1, 2, 3
         );
         assertThat(result, is(expect));
     }
