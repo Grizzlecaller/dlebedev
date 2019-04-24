@@ -30,8 +30,8 @@ public class ConvertList2Array2 {
     }
 
     public List<Integer> convert (List<int[]> list) {
-        list.add(new int[]{1, 2});
-        list.add(new int[]{3, 4, 5, 6});
+        //list.add(new int[]{1, 2});
+        //list.add(new int[]{3, 4, 5, 6});
         List<Integer> result = new ArrayList<>();
 
         int i = 0;

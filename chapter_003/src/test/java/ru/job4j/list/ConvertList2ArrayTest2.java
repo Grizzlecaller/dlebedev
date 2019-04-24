@@ -46,24 +46,14 @@ public class ConvertList2ArrayTest2 {
     public void when2MassThen1List() {
         ConvertList2Array2 list = new ConvertList2Array2();
         List<int[]> result = new ArrayList<>();
-        int[] aTmp = new int[4];
-        int aI = 0;
-        for (int a : aTmp) {
-            aTmp[aI] = aI;
-            aI++;
-        }
-        int[] bTmp = new int[4];
-        int bI = 0;
-        for (int b : bTmp) {
-            bTmp[bI] = bI;
-            bI++;
-        }
+        int[] aTmp = {1, 2, 3, 4};
+        int[] bTmp = {4, 3, 2, 1};
 
         result.add(0, aTmp);
         result.add(1, bTmp);
         list.convert(result);
         List<Integer> expect = Arrays.asList(
-                0, 1, 2, 3, 0, 1, 2, 3
+                1, 2, 3, 4, 4, 3, 2, 1
         );
         assertThat(result, is(expect));
     }
