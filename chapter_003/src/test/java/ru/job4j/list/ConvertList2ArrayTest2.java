@@ -43,7 +43,11 @@ public class ConvertList2ArrayTest2 {
     @Test
     public void when2MassThen1List() {
         ConvertList2Array2 list = new ConvertList2Array2();
-        list.convert();
+        List<int[]> tmp1;
+
+        tmp1.add(0, 0);
+        tmp1.add(1, 1);
+        list.convert(tmp1);
         List<Integer> expect = Arrays.asList(
                 1, 2, 3, 4, 9, 8, 7, 6, 5
         );
