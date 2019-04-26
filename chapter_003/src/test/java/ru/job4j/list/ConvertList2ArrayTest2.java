@@ -51,10 +51,10 @@ public class ConvertList2ArrayTest2 {
 
         result.add(0, aTmp);
         result.add(1, bTmp);
-        list.convert(result);
+        final List<Integer> convert =  list.convert(result);
         List<Integer> expect = Arrays.asList(
                 1, 2, 3, 4, 4, 3, 2, 1
         );
-        assertThat(result, is(expect));
+        assertThat(convert, is(expect));
     }
 }
