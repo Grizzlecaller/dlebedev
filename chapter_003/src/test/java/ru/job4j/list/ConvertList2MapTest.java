@@ -19,8 +19,7 @@ public class ConvertList2MapTest {
 
     @Test
     public void something() {
-        ConvertList2MapTest list = new ConvertList2MapTest();
-        List<ConvertList2Map.User> users = new ArrayList<ConvertList2Map.User>();
+        ConvertList2Map map = new ConvertList2Map();
 
     }
 }

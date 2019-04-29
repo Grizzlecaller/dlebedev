@@ -1,9 +1,6 @@
 package ru.job4j.list;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Class ConvertList2Map
@@ -48,15 +45,15 @@ public class ConvertList2Map {
                     '}';
         }
 
-
-    }
-
-    static class UserConvert {
-        public HashMap<Integer, User> process(List<User> list) {
-
-            return null;
+        public class UserConvert {
+            public HashMap<Integer, User> process(List<User> list) {
+                HashMap<Integer, User> hMap = new HashMap<>();
+                int i = 0;
+                for (User tmp : list) {
+                    hMap.put(i++, tmp);
+                }
+                return hMap;
+            }
         }
     }
-
-
 }
