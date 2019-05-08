@@ -45,17 +45,6 @@ public class ConvertList2Map {
                     '}';
         }
 
-        public class UserConvert {
-            public HashMap<Integer, User> process(List<User> list) {
-                HashMap<Integer, User> hMap = new HashMap<>();
-                int i = 0;
-                for (User tmp : list) {
-                    hMap.put(id, tmp);
-                }
-                return hMap;
-            }
-        }
-
         public static void main(String[] args) {
             List<User> tmpUser = new ArrayList<User>();
             tmpUser.addAll(Arrays.asList(
@@ -95,6 +84,17 @@ public class ConvertList2Map {
             if (realMap.equals(map)) {
                 System.out.println("all right!");
             }
+        }
+    }
+
+    public class UserConvert {
+        public HashMap<Integer, User> process(List<User> list) {
+            HashMap<Integer, User> hMap = new HashMap<>();
+            int i = 0;
+            for (User tmp : list) {
+                hMap.put(i, tmp);
+            }
+            return hMap;
         }
     }
 }
