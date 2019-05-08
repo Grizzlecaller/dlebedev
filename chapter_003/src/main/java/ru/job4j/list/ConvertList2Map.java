@@ -50,9 +50,50 @@ public class ConvertList2Map {
                 HashMap<Integer, User> hMap = new HashMap<>();
                 int i = 0;
                 for (User tmp : list) {
-                    hMap.put(i++, tmp);
+                    hMap.put(id, tmp);
                 }
                 return hMap;
+            }
+        }
+
+        public static void main(String[] args) {
+            List<User> tmpUser = new ArrayList<User>();
+            tmpUser.addAll(Arrays.asList(
+                    new User("test", "test", 0),
+                    new User("test1", "test1", 1),
+                    new User("test2", "test2", 2)
+                    )
+            );
+
+            for (User tmp : tmpUser) {
+                System.out.println(tmp);
+            }
+            System.out.println("---------------");
+
+            Map<Integer, User> map = new HashMap<Integer, User>();
+            for (User tmp : tmpUser) {
+                map.put(tmp.id, tmp);
+            }
+
+            for (int i = 0; i < map.size(); i++) {
+                System.out.println(map.get(i));
+            }
+            System.out.println("---------------");
+
+            Map<Integer, User> realMap = new HashMap<Integer, User>();
+
+
+            realMap.put(0, new User("test", "test", 0));
+            realMap.put(1, new User("test1", "test1", 1));
+            realMap.put(2, new User("test2", "test2", 2));
+
+            for (int i = 0; i < map.size(); i++) {
+                System.out.println(map.get(i));
+            }
+            System.out.println("---------------");
+
+            if (realMap.equals(map)) {
+                System.out.println("all right!");
             }
         }
     }
