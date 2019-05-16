@@ -92,7 +92,7 @@ public class ConvertList2Map {
             HashMap<Integer, User> hMap = new HashMap<>();
             int i = 0;
             for (User tmp : list) {
-                hMap.put(i, tmp);
+                hMap.put(i++, tmp);
             }
             return hMap;
         }

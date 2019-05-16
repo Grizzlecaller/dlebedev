@@ -9,16 +9,14 @@ package ru.job4j.list;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 
 public class ConvertList2MapTest {
 
     @Test
     public void something() {
-        ConvertList2Map test = new ConvertList2Map();
+        ConvertList2Map.UserConvert test = new ConvertList2Map().new UserConvert();
 
         final List<ConvertList2Map.User> actual = Arrays.asList(
                 new ConvertList2Map.User("test", "test", 0),
@@ -26,6 +24,14 @@ public class ConvertList2MapTest {
                 new ConvertList2Map.User("test2", "test2", 2)
         );
 
-        Assert.assertEquals(expected, actual);
+        final HashMap<Integer, ConvertList2Map.User> process = test.process(actual);
+
+        Map<Integer, ConvertList2Map.User> ex = new HashMap<>();
+
+        ex.put(0, new ConvertList2Map.User("test", "test", 0));
+        ex.put(1, new ConvertList2Map.User("test1", "test1", 1));
+        ex.put(2, new ConvertList2Map.User("test2", "test2", 2));
+
+        Assert.assertEquals(process, ex);
     }
 }
