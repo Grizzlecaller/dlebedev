@@ -1,8 +1,10 @@
 package ru.job4j.tracker;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.List;
 
 /**
  * Class tracker
@@ -14,7 +16,7 @@ public class Tracker {
     /**
      * Массив для хранение заявок.
      */
-    private final Item[] items = new Item[100];
+    private List<Item> items = new ArrayList<Item>();
 
     /**
      * Указатель ячейки для новой заявки.
@@ -26,12 +28,17 @@ public class Tracker {
      * Метод реализаущий добавление заявки в хранилище
      * @param item новая заявка
      */
-    public Item add(Item item) {
+    /**public Item add(Item item) {
         item.setId(this.generateId());
         this.items[this.position++] = item;
         return item;
     }
-
+    */
+    public Item add(Item item) {
+        item.setId(this.generateId());
+        this.items.add(item);
+        return item;
+    }
     /**
      * Метод генерирует уникальный ключ для заявки.
      * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
@@ -41,6 +48,8 @@ public class Tracker {
         //Реализовать метод генерации.
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
+
+    /**
 
     public Item findById(String id) {
         Item result = null;
@@ -52,11 +61,32 @@ public class Tracker {
         }
         return result;
     }
+    */
+    public List<Item> findById(String id) {
+        List<Item> result = new ArrayList<Item>();
+        for (Item item : items) {
+            if (item != null && item.getId().equals(id)) {
+                result.add(item);
+                break;
+            }
+        }
+        return result;
+    }
 
+
+    /**
     public Item[] getAll() {
         Item[] result = new Item[this.position];
         for (int index = 0; index != this.position; index++) {
             result[index] = this.items[index];
+        }
+        return result;
+    }
+     */
+    public List<Item> getAll() {
+        List<Item> result = new ArrayList<Item>();
+        for (Item item : items) {
+            result.add(item);
         }
         return result;
     }
