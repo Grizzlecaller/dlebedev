@@ -1,10 +1,7 @@
 package ru.job4j.tracker;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
-import java.util.List;
 
 /**
  * Class tracker
@@ -16,18 +13,16 @@ public class Tracker {
     /**
      * Массив для хранение заявок.
      */
-    private ArrayList<Item> items = new ArrayList<Item>();
+    ArrayList<Item> items = new ArrayList<>();
 
     /**
      * Указатель ячейки для новой заявки.
      */
-    private int position = 0;
+    //private int position = 0;
     private static final Random RN = new Random();
 
-    /**
-     * Метод реализаущий добавление заявки в хранилище
-     * @param item новая заявка
-     */
+
+
     /**public Item add(Item item) {
         item.setId(this.generateId());
         this.items[this.position++] = item;
@@ -36,7 +31,13 @@ public class Tracker {
     */
 
     //NEW
-    public Item add(Item item) {
+
+    /**
+     * Метод реализаущий добавление заявки в хранилище
+     * @param item новая заявка
+     */
+
+    Item add(Item item) {
         item.setId(this.generateId());
         this.items.add(item);
         return item;
@@ -66,8 +67,8 @@ public class Tracker {
     */
 
     //NEW
-    public ArrayList<Item> findById(String id) {
-        ArrayList<Item> result = new ArrayList<Item>();
+    ArrayList<Item> findById(String id) {
+        ArrayList<Item> result = new ArrayList<>();
         for (Item item : items) {
             if (item != null && item.getId().equals(id)) {
                 result.add(item);
@@ -89,12 +90,8 @@ public class Tracker {
      */
 
     //NEW
-    public ArrayList<Item> getAll() {
-        ArrayList<Item> result = new ArrayList<Item>();
-        for (Item item : items) {
-            result.add(item);
-        }
-        return result;
+    ArrayList<Item> getAll() {
+        return items;
     }
 
     /**
@@ -114,15 +111,11 @@ public class Tracker {
      */
 
     //NEW
-    public ArrayList<Item> findAll() {
+    ArrayList<Item> findAll() {
         return items;
     }
 
-    /**
-     * @param key принимает значение которое сравнивается с каким-либо параметром ячейки массива items.
-     * @return возвращает массив элементов совпадающих с key.
-     *
-     */
+
 
     /**
     public Item[] findByName(String key) {
@@ -137,8 +130,15 @@ public class Tracker {
      */
 
     //NEW
-    public ArrayList<Item> findByName(String key) {
-        ArrayList<Item> result = new ArrayList<Item>();
+
+    /**
+     * @param key принимает значение которое сравнивается с каким-либо параметром ячейки массива items.
+     * @return возвращает массив элементов совпадающих с key.
+     *
+     */
+
+    ArrayList<Item> findByName(String key) {
+        ArrayList<Item> result = new ArrayList<>();
         for (Item findName : items) {
             if (findName != null && findName.getName().equals(key)) {
                 result.add(findName);
@@ -163,7 +163,7 @@ public class Tracker {
      */
 
     // NEW!
-    public boolean delete(String id) {
+    boolean delete(String id) {
         boolean k = false;
         if (items.removeIf(item -> item.getId().equals(id))) {
             k = true;
@@ -194,13 +194,14 @@ public class Tracker {
      */
 
     //NEW
-    public boolean replace(String id, Item item) {
+    boolean replace(String id, Item item) {
         boolean k = false;
         for (Item findId : items) {
             if (findId != null && findId.getId().equals(id)) {
                 int index = items.indexOf(findId);
                 item.setId(id);
                 items.set(index, item);
+                k = true;
             }
         }
         return k;

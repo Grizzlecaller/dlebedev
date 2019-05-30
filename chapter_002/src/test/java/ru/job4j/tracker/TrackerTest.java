@@ -99,7 +99,7 @@ public class TrackerTest {
         Item next = new Item("test2", "testDescription2", 1234L);
         next.setId(previous.getId());
         tracker.replace(previous.getId(), next);
-        assertThat(previous.getName(), is("test2"));
+        assertThat(tracker.items.get(0).getName(), is("test2"));
     }
 
     @Test
@@ -128,6 +128,24 @@ public class TrackerTest {
         // Обновляем заявку в трекере.
         tracker.replace(next3.getId(), next6);
         // Проверяем, что заявка с таким id имеет новые имя test2.
-        assertThat(next3.getName(),  is("test6"));
+        assertThat(tracker.items.get(3).getName(),  is("test6"));
+    }
+
+    @Test
+    public void indexOfAndSetTest() {
+        Tracker tracker = new Tracker();
+        Item next = new Item("test", "testDescription", 123L);
+        Item next1 = new Item("test1", "testDescription1", 1234L);
+        Item next2 = new Item("test2", "testDescription2", 12345L);
+        Item next3 = new Item("test3", "testDescription3", 12346L);
+
+        tracker.add(next);
+        tracker.add(next1);
+        tracker.add(next2);
+        tracker.add(next3);
+
+        int i = tracker.items.indexOf(next2);
+        tracker.items.set(i, next);
+        assertThat(tracker.items.get(2).getName(), is("test"));
     }
 }
