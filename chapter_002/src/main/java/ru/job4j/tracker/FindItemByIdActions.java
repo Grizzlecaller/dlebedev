@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+
 /**
  * Class FindItemByIdActions
  * @author Dmitry Lebedev (mailto:dylebedev.social@gmail.com)
@@ -23,7 +25,7 @@ public class FindItemByIdActions extends BaseAction {
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Start findItemById --------------");
         String id = input.ask("id? :");
-        Item findId = tracker.findById(id);
+        ArrayList<Item> findId = tracker.findById(id);
         if (findId == null) {
             System.out.println("Id not found");
         } else {

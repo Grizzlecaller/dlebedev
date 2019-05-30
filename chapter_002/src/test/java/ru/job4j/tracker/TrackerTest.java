@@ -7,6 +7,9 @@ package ru.job4j.tracker;
  */
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -31,11 +34,11 @@ public class TrackerTest {
         tracker.add(next5);
         tracker.add(next6);
         tracker.add(next7);
-        Item[] resultIn = tracker.findAll();
+        ArrayList<Item> resultIn = tracker.findAll();
         /*for (int i = 0; i < resultIn.length; i++) {
             System.out.println(resultIn[i]);
         }*/
-        assertThat(resultIn.length, is(8));
+        assertThat(resultIn.size(), is(8));
     }
 
     @Test
@@ -57,8 +60,8 @@ public class TrackerTest {
         tracker.add(next5);
         tracker.add(next6);
         tracker.add(next7);
-        Item[] resultIn = tracker.findByName("test3");
-        Item resultOut = resultIn[2];
+        ArrayList<Item> resultIn = tracker.findByName("test3");
+        Item resultOut = resultIn.get(2);
         assertThat(resultOut.getDescription(), is("testDescription6"));
     }
 
@@ -82,8 +85,8 @@ public class TrackerTest {
         tracker.add(next6);
         tracker.add(next7);
         tracker.delete(next3.getId());
-        Item[] resultIn = tracker.getAll();
-        Item resultOut = resultIn[3];
+        ArrayList<Item> resultIn = tracker.getAll();
+        Item resultOut = resultIn.get(3);
         assertThat(resultOut.getDescription(), is("testDescription4"));
 
     }
@@ -96,7 +99,7 @@ public class TrackerTest {
         Item next = new Item("test2", "testDescription2", 1234L);
         next.setId(previous.getId());
         tracker.replace(previous.getId(), next);
-        assertThat(tracker.findById(previous.getId()).getName(), is("test2"));
+        assertThat(previous.getName(), is("test2"));
     }
 
     @Test
@@ -125,6 +128,6 @@ public class TrackerTest {
         // Обновляем заявку в трекере.
         tracker.replace(next3.getId(), next6);
         // Проверяем, что заявка с таким id имеет новые имя test2.
-        assertThat(tracker.findById(next3.getId()).getName(),  is("test6"));
+        assertThat(next3.getName(),  is("test6"));
     }
 }

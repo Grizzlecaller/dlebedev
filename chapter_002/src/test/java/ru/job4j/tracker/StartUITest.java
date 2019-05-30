@@ -45,7 +45,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();     // создаём Tracker
         Input input = new StubInput(new String[]{"0", "test name", "desc", "11", "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
-        assertThat(tracker.getAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
+        assertThat(tracker.getAll().get(0).getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
 
     @Test //findById + edit
@@ -59,7 +59,7 @@ public class StartUITest {
         // создаём StartUI и вызываем метод init()
         new StartUI(input, tracker).init();
         // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
-        assertThat(tracker.findById(item.getId()).getName(), is("test replace"));
+        assertThat(item.getName(), is("test replace"));
     }
 
     @Test //delete
@@ -70,7 +70,7 @@ public class StartUITest {
         Item item2 = tracker.add(new Item("test name2", "desc2", 3123));
         Input input = new StubInput(new String[]{"3", item1.getId(), "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.getAll()[1].getName(), is("test name2"));
+        assertThat(tracker.getAll().get(1).getName(), is("test name2"));
     }
 
     @Test //showall
@@ -127,10 +127,10 @@ public class StartUITest {
                         new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                                 .add(forStartUITest())
                                 .add("------------ Start findItemById --------------")
-                                .add("name" + " " + "=" + " " + item1.getName())
+                                .add("[" + "name" + " " + "=" + " " + item1.getName())
                                 .add("description" + " " + "=" + " " + item1.getDescription())
                                 .add("create" + " " + "=" + " " + item1.getCreate())
-                                .add("id" + " " + "=" + " " + item1.getId())
+                                .add("id" + " " + "=" + " " + item1.getId() + "]")
                                 .add(forStartUITest())
                                 .toString()
                 )
