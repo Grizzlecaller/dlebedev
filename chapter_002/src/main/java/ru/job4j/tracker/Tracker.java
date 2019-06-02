@@ -194,7 +194,7 @@ public class Tracker {
      */
 
     //NEW
-    boolean replace(String id, Item item) {
+    /**boolean replace(String id, Item item) {
         boolean k = false;
         for (Item findId : items) {
             if (findId != null && findId.getId().equals(id)) {
@@ -206,4 +206,16 @@ public class Tracker {
         }
         return k;
     }
+    */
+    boolean replace(String id, Item item) {
+        boolean k = false;
+        for (Item findId : items) {
+            //int index = items.indexOf(findId);
+            item.setId(id);
+            items.set(items.indexOf(findId), item);
+            k = true;
+        }
+        return k;
+    }
+
 }
