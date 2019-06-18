@@ -1,5 +1,9 @@
 package ru.job4j.sort;
 
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
 /**
  * Class SortUser
  * @author Dmitry Lebedev
@@ -7,4 +11,8 @@ package ru.job4j.sort;
  */
 
 public class SortUser {
+    public Set<User> sort(List<User>) {
+        return null;
+    }
+
 }

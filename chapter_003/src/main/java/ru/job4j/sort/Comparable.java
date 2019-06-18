@@ -6,5 +6,5 @@ package ru.job4j.sort;
  * @since 05.06.2019
  */
 
-public class Comparable {
+public interface Comparable {
 }

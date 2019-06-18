@@ -12,13 +12,12 @@ import java.util.Objects;
  * @since 05.06.2019
  */
 
-public class User {
+public class User implements Comparable {
     private final String name;
     private final String age;
     User(String name, String age) {
         this.name = name;
         this.age = age;
-
     }
 
     @Override
