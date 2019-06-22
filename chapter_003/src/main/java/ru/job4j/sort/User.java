@@ -15,7 +15,8 @@ import java.util.Objects;
 public class User implements Comparable<User> {
     private final String name;
     private final int age;
-    User(String name, int age) {
+
+    public User(String name, int age) {
         this.name = name;
         this.age = age;
     }
