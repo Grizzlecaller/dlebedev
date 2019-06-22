@@ -11,8 +11,7 @@ import java.util.TreeSet;
  */
 
 public class SortUser {
-    public Set<User> sort(List<User>) {
+    Set<User> sort (List<User>) {
         return null;
     }
-
 }
