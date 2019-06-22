@@ -12,10 +12,10 @@ import java.util.Objects;
  * @since 05.06.2019
  */
 
-public class User implements Comparable {
+public class User implements Comparable<User> {
     private final String name;
-    private final String age;
-    User(String name, String age) {
+    private final int age;
+    User(String name, int age) {
         this.name = name;
         this.age = age;
     }
@@ -24,16 +24,14 @@ public class User implements Comparable {
         return name;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(name, user.name) &&
-                Objects.equals(age, user.age);
+
+    public int compareTo(User o) {
+        int rsl = Integer.compare(this.age, o.age);
+        return rsl != 0 ? rsl : this.name.compareTo(o.name);
     }
+
 }
