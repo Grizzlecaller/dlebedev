@@ -1,5 +1,12 @@
 package ru.job4j.comparator;
 
+/**
+ * Class StringsCompareTest
+ * @author Dmitry Lebedev
+ * @since 30.06.2019
+ */
+
+
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;

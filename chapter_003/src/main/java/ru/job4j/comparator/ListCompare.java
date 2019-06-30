@@ -1,5 +1,11 @@
 package ru.job4j.comparator;
 
+/**
+ * Class ListCompare
+ * @author Dmitry Lebedev
+ * @since 30.06.2019
+ */
+
 import java.util.Comparator;
 
 
