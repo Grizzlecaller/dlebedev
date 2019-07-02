@@ -17,18 +17,13 @@ public class ListCompare implements Comparator<String> {
         int minSize = Math.min(left.length(),right.length());
         do {
             int compareChar = Character.compare(left.charAt(i), right.charAt(i));
-            if (compareChar < 0) {
-                result = compareChar;
-                break;
-            } else if (compareChar > 0) {
+            if (compareChar != 0) {
                 result = compareChar;
                 break;
             }
             i++;
         } while (i != minSize);
-        if (result == 0) {
-            result = Integer.compare(left.length(), right.length());
-        }
-        return result;
+
+        return result == 0 ? Integer.compare(left.length(), right.length()) : result;
     }
 }
