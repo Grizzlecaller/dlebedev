@@ -15,14 +15,15 @@ public class ListCompare implements Comparator<String> {
         int result = 0;
         int i = 0;
         int minSize = Math.min(left.length(),right.length());
+        int compareChar = Character.compare(left.charAt(i), right.charAt(i));
         do {
-            if(left.charAt(i) < right.charAt(i)) {
+            //if(left.charAt(i) < right.charAt(i)) {
+            if (compareChar < 0) {
                 result = -1;
-                i++;
                 break;
-            } else if(left.charAt(i) > right.charAt(i)) {
+                //} else if(left.charAt(i) > right.charAt(i)) {
+            } else if (compareChar > 0) {
                 result = 1;
-                i++;
                 break;
             }
             i++;
