@@ -23,12 +23,16 @@ public class ConvertList2Map {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
             User user = (User) o;
-            return Objects.equals(name, user.name) &&
-                    Objects.equals(city, user.city) &&
-                    Objects.equals(id, user.id);
+            return Objects.equals(name, user.name)
+                    && Objects.equals(city, user.city)
+                    && Objects.equals(id, user.id);
         }
 
         @Override
@@ -38,11 +42,11 @@ public class ConvertList2Map {
 
         @Override
         public String toString() {
-            return "User{" +
-                    "name='" + name + '\'' +
-                    ", city='" + city + '\'' +
-                    ", id=" + id +
-                    '}';
+            return "User{"
+                    + "name='" + name + '\''
+                    + ", city='" + city + '\''
+                    + ", id=" + id
+                    + '}';
         }
 
         public static void main(String[] args) {
