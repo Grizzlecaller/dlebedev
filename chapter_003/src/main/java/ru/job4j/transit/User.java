@@ -1,6 +1,4 @@
-package ru.job4j.bankTransit;
-
-import ru.job4j.list.ConvertList2Map;
+package ru.job4j.transit;
 
 import java.util.Objects;
 
@@ -14,7 +12,7 @@ public class User {
     private final String name;
     private final int passport;
 
-    public User (String name, int passport) {
+    public User(String name, int passport) {
         this.name = name;
         this.passport = passport;
     }

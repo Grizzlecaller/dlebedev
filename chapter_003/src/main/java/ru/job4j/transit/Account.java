@@ -1,4 +1,4 @@
-package ru.job4j.bankTransit;
+package ru.job4j.transit;
 
 /**
  * Class Account
