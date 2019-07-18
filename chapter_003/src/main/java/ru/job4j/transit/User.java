@@ -10,9 +10,9 @@ import java.util.Objects;
 
 public class User {
     private final String name;
-    private final int passport;
+    private final String passport;
 
-    public User(String name, int passport) {
+    public User(String name, String passport) {
         this.name = name;
         this.passport = passport;
     }
@@ -21,7 +21,7 @@ public class User {
         return name;
     }
 
-    public int getPassport() {
+    public String getPassport() {
         return passport;
     }
 
