@@ -23,14 +23,29 @@ public class Account {
         return this.requisites;
     }
 
-    public boolean transfer(Account destination, double amount) {
-        boolean result = false;
-        if (amount > 0 && amount < this.value && destination != null) {
-            this.value -= amount;
-            destination.value += amount;
-            result = true;
+    public void subAmount(double amount) {
+        this.value -= amount;
+    }
+
+    public void addAbount(double amount) {
+        this.value += amount;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean valid = false;
+        if (obj != null) {
+            if (this == obj) {
+                valid = true;
+            }
+            if (!valid && getClass() == obj.getClass()) {
+                Account account = (Account) obj;
+                if (this.requisites != null && account.requisites != null) {
+                    valid = this.requisites.equals(account.requisites);
+                }
+            }
         }
-        return result;
+        return valid;
     }
 
     public String toString() {

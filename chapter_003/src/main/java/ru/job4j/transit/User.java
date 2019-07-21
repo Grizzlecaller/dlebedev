@@ -8,7 +8,7 @@ import java.util.Objects;
  * @since 10.07.2019
  */
 
-public class User {
+public class User implements Comparable<User> {
     private final String name;
     private final String passport;
 
@@ -26,20 +26,30 @@ public class User {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
+    public boolean equals(Object obj) {
+        boolean valid = false;
+        if (obj != null) {
+            if (this == obj) {
+                valid = true;
+            }
+            if (!valid && getClass() == obj.getClass()) {
+                User user = (User) obj;
+                if (this.name != null && this.passport != null && user.name != null && user.passport != null) {
+                    valid = this.name.equals(user.name) && this.passport.equals(user.passport);
+                }
+            }
         }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        User user = (User) o;
-        return Objects.equals(name, user.name)
-                && Objects.equals(passport, user.passport);
+        return valid;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(name, passport);
+    }
+
+    @Override
+    public int compareTo(User user) {
+        int valid = this.name.compareTo(user.name);
+        return valid == 0 ? this.passport.compareTo(user.passport) : valid;
     }
 }

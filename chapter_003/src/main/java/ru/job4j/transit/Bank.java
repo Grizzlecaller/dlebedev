@@ -1,8 +1,6 @@
 package ru.job4j.transit;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * Class Bank
@@ -11,10 +9,18 @@ import java.util.TreeMap;
  */
 
 public class Bank {
-    private TreeMap<User, ArrayList<Account>> treemap = new TreeMap<>();
+    private Map<User, ArrayList<Account>> treemap = new TreeMap<>();
 
     public void addUser(User user) {
         this.treemap.put(user, new ArrayList<>());
+    }
+
+    public User getUser(String passport) {
+        Optional<User> searched = this.treemap.keySet().stream()
+                .filter(user -> user.getPassport().equals(passport))
+                .findAny();
+
+        return searched.get();
     }
 
     public void deleteUser(User user) {
@@ -22,24 +28,37 @@ public class Bank {
     }
 
     public void addAccountToUser(String passport, Account account) {
-        this.treemap.get(passport).add(account);
+        ArrayList<Account> tmp = this.treemap.get(getUser(passport));
+        tmp.add(account);
     }
 
     public void deleteAccountFromUser(String passport, Account account) {
-        this.treemap.get(passport).remove(account);
+        this.treemap.get(getUser(passport)).remove(account);
     }
 
     public List<Account> getUserAccounts(String passport) {
-        return this.treemap.get(passport);
+        return this.treemap.get(getUser(passport));
+    }
+
+    public Account getOneUserAccount(String passport, String requisite) {
+        List<Account> accounts = getUserAccounts(passport);
+        int tmp = accounts.indexOf(new Account(0, requisite));
+        return accounts.get(tmp);
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
-                                 String destPassport, String dstRequisite,
-                                 double amount) {
-        return this.treemap.get(srcPassport).contains(srcRequisite)
-                && this.treemap.get(destPassport).contains(dstRequisite)
-                && getUserAccounts(srcPassport).transfer(
-                getUserAccounts(destPassport), amount);
+                                 String dstPassport, String dstRequisite, double amount) {
+        boolean valid = false;
+        Account src = getOneUserAccount(srcPassport, srcRequisite);
+        Account dst = getOneUserAccount(dstPassport, dstRequisite);
+        if (src != null && dst != null) {
+            if (amount > 0 && amount < src.getValue() && src.getValue() != 0) {
+                src.subAmount(amount);
+                dst.addAbount(amount);
+                valid = true;
+            }
+        }
+        return valid;
     }
 
     public String toString() {
