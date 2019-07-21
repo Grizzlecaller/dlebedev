@@ -1,5 +1,7 @@
 package ru.job4j.transit;
 
+import java.util.Objects;
+
 /**
  * Class Account
  * @author Dmitry Lebedev
@@ -46,6 +48,11 @@ public class Account {
             }
         }
         return valid;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value, requisites);
     }
 
     public String toString() {
