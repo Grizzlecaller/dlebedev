@@ -12,13 +12,13 @@ import static org.junit.Assert.*;
 
 public class BankTest {
 
-    @Test
+   /* @Test
     public void whenAddUser() {
         Bank bank = new Bank();
         bank.addUser(new User("Ammy", "123456"));
         bank.addUser(new User("Fred", "654321"));
         assertThat(bank.getUser("654321").getName(), is("Fred"));
-    }
+    }*/
 
     @Test
     public void whenAddAccountToUser() {
