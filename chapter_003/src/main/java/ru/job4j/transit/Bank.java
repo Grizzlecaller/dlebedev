@@ -11,7 +11,7 @@ import java.util.*;
 public class Bank {
     private Map<User, ArrayList<Account>> treemap = new TreeMap<>();
 
-    public void addUser(User user) {
+    void addUser(User user) {
         this.treemap.put(user, new ArrayList<>());
     }
 
@@ -22,7 +22,7 @@ public class Bank {
         return searched.get();
     }*/
 
-    public void deleteUser(User user) {
+    void deleteUser(User user) {
         this.treemap.remove(user);
     }
 
@@ -31,7 +31,7 @@ public class Bank {
         tmp.add(account);
     }*/
 
-    public void addAccountToUser(Account account, User user) {
+    void addAccountToUser(Account account, User user) {
         this.treemap.putIfAbsent(user, new ArrayList<>());
         this.treemap.get(user).add(account);
     }
@@ -40,19 +40,25 @@ public class Bank {
         this.treemap.get(getUser(passport)).remove(account);
     }*/
 
-    public void deleteAccountFromUser(Account account, User user) {
+    void deleteAccountFromUser(Account account, User user) {
         this.treemap.get(user).remove(account);
     }
 
-    public List<Account> getUserAccounts(User user) {
+    List<Account> getUserAccounts(User user) {
         return this.treemap.get(user);
     }
 
-    /*public Account getOneUserAccount(String passport, String requisite) {
-        List<Account> accounts = getUserAccounts(passport);
+   /* public Account getOneUserAccount(String requisite, User user) {
+        List<Account> accounts = getUserAccounts(user);
         int tmp = accounts.indexOf(new Account(0, requisite));
         return accounts.get(tmp);
     }*/
+
+    List<User> getAllUsers() {
+        List<User> users = new ArrayList<>();
+        users.addAll(this.treemap.keySet());
+        return users;
+    }
 
     /*public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String dstPassport, String dstRequisite, double amount) {
@@ -69,9 +75,15 @@ public class Bank {
         return valid;
     }*/
 
-    public boolean transferMoney(User srcUser, Account srcAccount, User dstUser, Account dstAccount, double amount) {
+    boolean transferMoney(User srcUser, Account srcAccount, User dstUser, Account dstAccount, double amount) {
         boolean result = false;
-        if (this.treemap.get(dstUser).contains(dstAccount) && amount <= )
+        if (this.treemap.get(srcUser).contains(srcAccount)
+                && this.treemap.get(dstUser).contains(dstAccount)
+                && srcAccount.getValue() >= amount) {
+            srcAccount.setValue(srcAccount.getValue() - amount);
+            dstAccount.setValue(dstAccount.getValue() + amount);
+            result = true;
+        }
         return result;
     }
 

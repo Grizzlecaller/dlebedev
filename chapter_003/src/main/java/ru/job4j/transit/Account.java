@@ -12,26 +12,32 @@ public class Account {
     private double value;
     private String requisites;
 
-    public Account(int value, String requisites) {
+    Account(int value, String requisites) {
         this.value = value;
         this.requisites = requisites;
     }
 
-    public double getValue() {
-        return this.value;
+    double getValue() {
+        return value;
     }
 
-    public String getRequisites() {
+    void setValue(double value) {
+        this.value = value;
+    }
+
+    String getRequisites() {
         return this.requisites;
     }
 
-    public void subAmount(double amount) {
+    /*void subAmount(double amount) {
         this.value -= amount;
     }
 
-    public void addAbount(double amount) {
+    void addAbount(double amount) {
         this.value += amount;
-    }
+    }*/
+
+
 
     @Override
     public boolean equals(Object obj) {
