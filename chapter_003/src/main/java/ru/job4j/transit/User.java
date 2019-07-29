@@ -9,8 +9,8 @@ import java.util.Objects;
  */
 
 public class User implements Comparable<User> {
-    private final String name;
-    private final String passport;
+    private String name;
+    private String passport;
 
     User(String name, String passport) {
         this.name = name;
@@ -23,6 +23,15 @@ public class User implements Comparable<User> {
 
     public String getPassport() {
         return passport;
+    }
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPassport(String passport) {
+        this.passport = passport;
     }
 
     @Override

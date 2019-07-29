@@ -31,16 +31,22 @@ public class Bank {
         tmp.add(account);
     }*/
 
-    void addAccountToUser(Account account, User user) {
-        this.treemap.putIfAbsent(user, new ArrayList<>());
-        this.treemap.get(user).add(account);
+    void addAccountToUser(String passport, Account account) {
+        //this.treemap.putIfAbsent(user, new ArrayList<>());
+        //this.treemap.get(user).add(account);
+        for (int i = 0; i < this.treemap.size(); i++) {
+            if (passport.equals(this.treemap.get(i))) {
+                this.treemap.get(i).add(account);
+            }
+        }
+
     }
 
     /*public void deleteAccountFromUser(String passport, Account account) {
         this.treemap.get(getUser(passport)).remove(account);
     }*/
 
-    void deleteAccountFromUser(Account account, User user) {
+    void deleteAccountFromUser(String passport, Account account) {
         this.treemap.get(user).remove(account);
     }
 

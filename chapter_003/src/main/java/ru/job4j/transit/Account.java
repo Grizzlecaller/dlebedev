@@ -29,6 +29,10 @@ public class Account {
         return this.requisites;
     }
 
+    void setRequisites(String requisites) {
+        this.requisites = requisites;
+    }
+
     /*void subAmount(double amount) {
         this.value -= amount;
     }
