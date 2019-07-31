@@ -12,7 +12,8 @@ public class Bank {
     private Map<User, ArrayList<Account>> treemap = new TreeMap<>();
 
     void addUser(User user) {
-        this.treemap.put(user, new ArrayList<>());
+        ArrayList<Account> accList = new ArrayList<>();
+        treemap.putIfAbsent(user, accList);
     }
 
     /*public User getUser(String passport) {
@@ -23,7 +24,9 @@ public class Bank {
     }*/
 
     void deleteUser(User user) {
-        this.treemap.remove(user);
+        if (treemap.get(user) != null) {
+            treemap.remove(user);
+        }
     }
 
     /*public void addAccountToUser(String passport, Account account) {
@@ -34,12 +37,14 @@ public class Bank {
     void addAccountToUser(String passport, Account account) {
         //this.treemap.putIfAbsent(user, new ArrayList<>());
         //this.treemap.get(user).add(account);
-        for (int i = 0; i < this.treemap.size(); i++) {
-            if (passport.equals(this.treemap.get(i))) {
-                this.treemap.get(i).add(account);
+        if (passport != null && account != null) {
+            for (User user : treemap.keySet()) {
+                if (user.getPassport().equals(passport)) {
+                    treemap.get(user).add(account);
+                    break;
+                }
             }
         }
-
     }
 
     /*public void deleteAccountFromUser(String passport, Account account) {
@@ -47,11 +52,26 @@ public class Bank {
     }*/
 
     void deleteAccountFromUser(String passport, Account account) {
-        this.treemap.get(user).remove(account);
+        if (passport != null && account != null) {
+            for (User user : treemap.keySet()) {
+                if (user.getPassport().equals(passport)) {
+                    treemap.get(user).remove(account);
+                    break;
+                }
+            }
+        }
     }
 
-    List<Account> getUserAccounts(User user) {
-        return this.treemap.get(user);
+    List<Account> getUserAccounts(String passport) {
+        List<Account> userAcc = new ArrayList<>();
+        if (passport != null) {
+            for (User user : treemap.keySet()) {
+                if (user.getPassport().equals(passport)) {
+                    userAcc = treemap.get(user);
+                }
+            }
+        }
+        return userAcc;
     }
 
    /* public Account getOneUserAccount(String requisite, User user) {
