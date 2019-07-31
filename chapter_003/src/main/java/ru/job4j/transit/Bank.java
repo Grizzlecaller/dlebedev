@@ -101,13 +101,27 @@ public class Bank {
         return valid;
     }*/
 
-    boolean transferMoney(User srcUser, Account srcAccount, User dstUser, Account dstAccount, double amount) {
+    public Account accAndReqEquals(String passport, String requisites) {
+        Account result = null;
+        List<Account> list = getUserAccounts(passport);
+        for (Account tmp : list) {
+            if (tmp.getRequisites().equals(requisites)) {
+                result = tmp;
+            }
+        }
+
+        return result;
+    }
+
+    boolean transferMoney(String srcPassport, String srcRequisites,
+                          String dstPassport, String dstRequisites,
+                          double amount) {
         boolean result = false;
-        if (this.treemap.get(srcUser).contains(srcAccount)
-                && this.treemap.get(dstUser).contains(dstAccount)
-                && srcAccount.getValue() >= amount) {
-            srcAccount.setValue(srcAccount.getValue() - amount);
-            dstAccount.setValue(dstAccount.getValue() + amount);
+        Account src = accAndReqEquals(srcPassport, srcRequisites);
+        Account dst = accAndReqEquals(dstPassport, dstRequisites);
+        if (amount <= src.getValue()) {
+            src.setValue(src.getValue() - amount);
+            dst.setValue(dst.getValue() + amount);
             result = true;
         }
         return result;
