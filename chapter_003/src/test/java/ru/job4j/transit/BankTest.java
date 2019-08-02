@@ -28,16 +28,23 @@ public class BankTest {
     private static final Account FRED_ACC_TWO = new Account(2500, "2123456");
 
     @Test
-    public void whenAddAccountToUser() {
+    public void whenAddUserAndAccToUserThenUserHaveOneAcc() {
         Bank bank = new Bank();
         bank.addUser(FRED);
-        bank.addAccountToUser(FRED_ACC_ONE, FRED);
-        bank.addAccountToUser(FRED_ACC_TWO, FRED);
-        assertThat(bank.getUserAccounts(FRED).get(1).getRequisites(), is("2123456"));
+        bank.addAccountToUser(FRED.getPassport(), FRED_ACC_ONE);
+        assertThat(bank.getUserAccounts(FRED.getPassport()).get(0).getRequisites(), is("1123456"));
     }
 
     @Test
-    public void whenAddTwoUsersAndDeleteOneUserThenAllUsersIsOne() {
+    public void whenAddUsersAmmyAndFredThenBankHaveTwoAcc() {
+        Bank bank = new Bank();
+        bank.addUser(AMMY);
+        bank.addUser(FRED);
+        assertThat(bank.getAllUsers().size(), is(2));
+    }
+
+    @Test
+    public void whenAddUsersAmmyAndFredAndDeleteFredThenBankHaveOneUserAmmy() {
         Bank bank = new Bank();
         bank.addUser(AMMY);
         bank.addUser(FRED);
@@ -46,6 +53,48 @@ public class BankTest {
     }
 
     @Test
+    public void whenAddUserAmmyAndAddAmmyTwoAccAndDeleteOneOfThemThenUserAmmyHaveOneAcc() {
+        Bank bank = new Bank();
+        bank.addUser(AMMY);
+        bank.addAccountToUser(AMMY.getPassport(), AMMY_ACC_ONE);
+        bank.addAccountToUser(AMMY.getPassport(), AMMY_ACC_TWO);
+        bank.deleteAccountFromUser(AMMY.getPassport(), AMMY_ACC_ONE);
+        assertThat(bank.getUserAccounts(AMMY.getPassport()).size(), is(1));
+    }
+
+    @Test
+    public void whenAmmyTransfer500MoneyToFreedThenFredHas2000Money() {
+        Bank bank = new Bank();
+        bank.addUser(AMMY);
+        bank.addUser(FRED);
+        bank.addAccountToUser(AMMY.getPassport(), AMMY_ACC_TWO);
+        bank.addAccountToUser(FRED.getPassport(), FRED_ACC_ONE);
+        bank.transferMoney(AMMY.getPassport(), AMMY_ACC_TWO.getRequisites(), FRED.getPassport(), FRED_ACC_ONE.getRequisites(), 500);
+        assertThat(AMMY_ACC_TWO.getValue(), is(1500.0));
+    }
+
+
+
+
+    /*@Test
+    public void whenAddAccountToUser() {
+        Bank bank = new Bank();
+        bank.addUser(FRED);
+        bank.addAccountToUser(FRED_ACC_ONE, FRED);
+        bank.addAccountToUser(FRED_ACC_TWO, FRED);
+        assertThat(bank.getUserAccounts(FRED).get(1).getRequisites(), is("2123456"));
+    }*/
+
+    /*@Test
+    public void whenAddTwoUsersAndDeleteOneUserThenAllUsersIsOne() {
+        Bank bank = new Bank();
+        bank.addUser(AMMY);
+        bank.addUser(FRED);
+        bank.deleteUser(FRED);
+        assertThat(bank.getAllUsers().size(), is(1));
+    }*/
+
+    /*@Test
     public void whenDeleteAccFromUser() {
         Bank bank = new Bank();
         bank.addUser(AMMY);
@@ -53,18 +102,18 @@ public class BankTest {
         bank.addAccountToUser(AMMY_ACC_TWO, AMMY);
         bank.deleteAccountFromUser(AMMY_ACC_ONE, AMMY);
         assertThat(bank.getUserAccounts(AMMY).size(), is(1));
-    }
+    }*/
 
-    @Test
+    /*@Test
     public void whenGetUserAccounts() {
         Bank bank = new Bank();
         bank.addUser(FRED);
         bank.addAccountToUser(FRED_ACC_ONE, FRED);
         bank.addAccountToUser(FRED_ACC_TWO, FRED);
         assertThat(bank.getUserAccounts(FRED).size(), is(2));
-    }
+    }*/
 
-    @Test
+    /*@Test
     public void whenTranferMoneyAmmyToFredThenFredHaveAddMoney() {
         Bank bank = new Bank();
         bank.addUser(FRED);
@@ -73,8 +122,9 @@ public class BankTest {
         bank.addAccountToUser(AMMY_ACC_ONE, AMMY);
         bank.transferMoney(AMMY, AMMY_ACC_ONE, FRED, FRED_ACC_ONE, 500);
         assertThat(bank.getUserAccounts(FRED).get(0).getValue(), is(2000.0));
-    }
-    @Test
+    }*/
+
+    /*@Test
     public void whenTranferMoneyAmmyToFredThenAmmyHaveSubMoney() {
         Bank bank = new Bank();
         bank.addUser(FRED);
@@ -83,7 +133,7 @@ public class BankTest {
         bank.addAccountToUser(AMMY_ACC_TWO, AMMY);
         bank.transferMoney(AMMY, AMMY_ACC_TWO, FRED, FRED_ACC_ONE, 500);
         assertThat(bank.getUserAccounts(AMMY).get(0).getValue(), is(1500.0));
-    }
+    }*/
     /*@Test
     public void whenGetOneOfUserAccount() {
         Bank bank = new Bank();

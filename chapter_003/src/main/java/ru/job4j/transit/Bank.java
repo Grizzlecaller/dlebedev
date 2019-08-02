@@ -101,7 +101,7 @@ public class Bank {
         return valid;
     }*/
 
-    public Account accAndReqEquals(String passport, String requisites) {
+    Account accAndReqEquals(String passport, String requisites) {
         Account result = null;
         List<Account> list = getUserAccounts(passport);
         for (Account tmp : list) {
@@ -113,18 +113,18 @@ public class Bank {
         return result;
     }
 
-    boolean transferMoney(String srcPassport, String srcRequisites,
+    void /*boolean*/ transferMoney(String srcPassport, String srcRequisites,
                           String dstPassport, String dstRequisites,
                           double amount) {
-        boolean result = false;
+        //boolean result = false;
         Account src = accAndReqEquals(srcPassport, srcRequisites);
         Account dst = accAndReqEquals(dstPassport, dstRequisites);
         if (amount <= src.getValue()) {
             src.setValue(src.getValue() - amount);
             dst.setValue(dst.getValue() + amount);
-            result = true;
+            //result = true;
         }
-        return result;
+        //return result;
     }
 
     public String toString() {

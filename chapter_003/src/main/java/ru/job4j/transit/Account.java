@@ -12,7 +12,7 @@ public class Account {
     private double value;
     private String requisites;
 
-    Account(int value, String requisites) {
+    Account(double value, String requisites) {
         this.value = value;
         this.requisites = requisites;
     }
