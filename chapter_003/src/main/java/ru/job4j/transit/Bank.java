@@ -116,15 +116,15 @@ public class Bank {
     void /*boolean*/ transferMoney(String srcPassport, String srcRequisites,
                           String dstPassport, String dstRequisites,
                           double amount) {
-        //boolean result = false;
-        Account src = accAndReqEquals(srcPassport, srcRequisites);
-        Account dst = accAndReqEquals(dstPassport, dstRequisites);
-        if (amount <= src.getValue()) {
-            src.setValue(src.getValue() - amount);
-            dst.setValue(dst.getValue() + amount);
-            //result = true;
+
+        if (srcPassport != null && srcRequisites != null && dstPassport != null && dstRequisites != null) {
+            Account src = accAndReqEquals(srcPassport, srcRequisites);
+            Account dst = accAndReqEquals(dstPassport, dstRequisites);
+            if (amount <= src.getValue()) {
+                src.setValue(src.getValue() - amount);
+                dst.setValue(dst.getValue() + amount);
+            }
         }
-        //return result;
     }
 
     public String toString() {
