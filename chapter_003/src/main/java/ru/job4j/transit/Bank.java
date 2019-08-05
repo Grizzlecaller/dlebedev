@@ -121,7 +121,7 @@ public class Bank {
         if (srcPassport != null && srcRequisites != null && dstPassport != null && dstRequisites != null) {
             Account src = accAndReqEquals(srcPassport, srcRequisites);
             Account dst = accAndReqEquals(dstPassport, dstRequisites);
-            if (amount <= src.getValue() && src != null && dst != null ) {
+            if (src != null && dst != null && amount <= src.getValue()) {
                 src.setValue(src.getValue() - amount);
                 dst.setValue(dst.getValue() + amount);
             }
