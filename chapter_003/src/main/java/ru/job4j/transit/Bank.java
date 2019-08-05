@@ -101,15 +101,16 @@ public class Bank {
         return valid;
     }*/
 
-    Account accAndReqEquals(String passport, String requisites) {
+    private Account accAndReqEquals(String passport, String requisites) {
         Account result = null;
         List<Account> list = getUserAccounts(passport);
-        for (Account tmp : list) {
-            if (tmp.getRequisites().equals(requisites)) {
-                result = tmp;
+        if (passport != null && requisites != null) {
+            for (Account tmp : list) {
+                if (tmp.getRequisites().equals(requisites)) {
+                    result = tmp;
+                }
             }
         }
-
         return result;
     }
 
