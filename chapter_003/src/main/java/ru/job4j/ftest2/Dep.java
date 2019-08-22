@@ -22,4 +22,8 @@ public class Dep {
         return this.name;
     }
 
+    public int getLength() {
+        return this.name.length();
+    }
+
 }

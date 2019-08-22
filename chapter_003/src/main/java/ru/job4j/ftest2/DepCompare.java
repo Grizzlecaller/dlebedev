@@ -10,7 +10,11 @@ import java.util.Comparator;
 
 public class DepCompare implements Comparator<Dep> {
     public int compare(Dep o1, Dep o2) {
-        //if ()
+        /*if (o1.getName().compareTo(o2.getName()) == -1){
+
+        }*/
+
+        //return 0;
         return o1.getName().compareTo(o2.getName());
     }
 }

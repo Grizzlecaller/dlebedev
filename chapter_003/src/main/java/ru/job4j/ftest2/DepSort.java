@@ -15,17 +15,18 @@ public class DepSort {
 
     private List<Dep> depList = new ArrayList<>();
 
-    public void addDep(Dep dep) {
+    /*public void addDep(Dep dep) {
         depList.add(dep);
-    }
+    }*/
 
-    public void delDep(Dep dep) {
+    /*public void delDep(Dep dep) {
         depList.remove(dep);
-    }
+    }*/
 
-    List<Dep> getAllDep() {
+    List<Dep> getAllDep(List<Dep> tmp) {
         List<Dep> result = new ArrayList<>();
-        result.addAll(depList);
+        result.addAll(tmp);
+        result.sort(new DepCompare());
         return result;
     }
 
@@ -40,12 +41,6 @@ public class DepSort {
         List<Dep> result = new ArrayList<>();
         result.addAll(tmp);
         result.sort(new DepCompare().reversed());
-        for (int i = 0; i < result.size(); i++) {
-            if (result.get(i).getName().length() == result.get(i + 1).getName().length()) {
-
-            }
-        }
         return result;
     }
-
 }
