@@ -37,10 +37,21 @@ public class DepSort {
         return result;
     }
 
-    List<Dep> depSortBtoA(List<Dep> tmp) {
+    /*List<Dep> depSortBtoA(List<Dep> tmp) {
         List<Dep> result = new ArrayList<>();
         result.addAll(tmp);
         result.sort(new DepCompare().reversed());
         return result;
+    }*/
+    List<Dep> nameSortBtoA(List<Dep> tmp) {
+        List<Dep> result = new ArrayList<>();
+        for (int i = 0; i < tmp.size() - 1; i++) {
+            for(int j = 0; j < Math.min(tmp.get(i).getLength(), tmp.get(i + 1).getLength()); j++) {
+                if (tmp.get(i).getName().charAt(j) != tmp.get(i + 1).getName().charAt(j)) {
+
+                }
+            }
+        }
+        return null;
     }
 }

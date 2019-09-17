@@ -52,10 +52,10 @@ public class DepSortTest {
         }
     }
 
-    @Test
+    /*@Test
     public void WhenAddDepThenSotrBtoA() {
         DepSort dep = new DepSort();
-        /*dep.addDep(new Dep("K1"));
+        *//*dep.addDep(new Dep("K1"));
         dep.addDep(new Dep("K1\\SK1"));
         dep.addDep(new Dep("K1\\SK1\\SSK1"));
         dep.addDep(new Dep("K1\\SK1\\SSK2"));
@@ -63,7 +63,7 @@ public class DepSortTest {
         dep.addDep(new Dep("K2"));
         dep.addDep(new Dep("K2\\SK1"));
         dep.addDep(new Dep("K2\\SK1\\SSK1"));
-        dep.addDep(new Dep("K2\\SK1\\SSK2"));*/
+        dep.addDep(new Dep("K2\\SK1\\SSK2"));*//*
         Dep t1 = new Dep("K1");
         Dep t2 = new Dep("K1\\SK1");
         Dep t3 = new Dep("K1\\SK1\\SSK1");
@@ -84,6 +84,35 @@ public class DepSortTest {
         tmp.add(t8);
         tmp.add(t9);
         List<Dep> result = dep.depSortBtoA(tmp);
+        System.out.println("-----");
+        for(Dep i : result) {
+            System.out.println(i.getName());
+        }
+    }*/
+
+    @Test
+    public void WhenAddNameThenSotrBtoA() {
+        DepSort dep = new DepSort();
+        Dep t1 = new Dep("Иванов");
+        Dep t2 = new Dep("Иванкин");
+        Dep t3 = new Dep("Ивченко");
+        Dep t4 = new Dep("Лавриенко");
+        Dep t5 = new Dep("Лавочкин");
+        Dep t6 = new Dep("Абрамов");
+        Dep t7 = new Dep("Абдулов");
+        Dep t8 = new Dep("Акрин");
+        Dep t9 = new Dep("Циганов");
+        List<Dep> tmp = new ArrayList<>();
+        tmp.add(t7);
+        tmp.add(t2);
+        tmp.add(t4);
+        tmp.add(t1);
+        tmp.add(t5);
+        tmp.add(t3);
+        tmp.add(t6);
+        tmp.add(t8);
+        tmp.add(t9);
+        List<Dep> result = dep.nameSortBtoA(tmp);
         System.out.println("-----");
         for(Dep i : result) {
             System.out.println(i.getName());
